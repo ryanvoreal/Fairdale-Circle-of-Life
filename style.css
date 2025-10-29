@@ -185,6 +185,36 @@ body { /* global body styles */
     transition: none !important;
   }
 }
+.nav-toggle{
+  display:none
+}
+
+@media (max-width: 780px) {
+  .site-header {
+    width: 100%;
+    left:0;
+    transform:translateX();
+    margin-top:0;
+    border-radius:0;
+    padding: 0.5rem 1rem;
+  }
+  .nav-toggle{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.5rem;
+    cursor:pointer;
+  }
+  .site-nav {
+    position: absolute;
+    right: 1rem;
+    top: 64px;
+    transform: translateY(-6px);
+  }
+  .site-nav.open ul {
+    display: flex;
+  }
+}
 
 /* hero section */
 .hero {

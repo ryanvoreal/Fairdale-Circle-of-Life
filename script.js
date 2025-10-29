@@ -13,5 +13,11 @@ function revealOnScroll() {
 window.addEventListener('scroll', revealOnScroll);
 revealOnScroll(); 
 
+const toggleBtn = document.querySelector('.nav-toggle');
+const nav = document.querySelector('.site-nav');
+
+toggleBtn.addEventListener('click', () => {
+  nav.classList.toggle('open');
+});
 
 
