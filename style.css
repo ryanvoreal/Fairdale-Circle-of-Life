@@ -216,9 +216,9 @@ body { /* global body styles */
     position: absolute;
     right: 0;
     left: 0;
-    width:0;
+    width: auto;
     margin:0 1rem;
-    top: 60px;
+    top: 64px;
     transform: translateY(-6px);
   }
   .site-nav.open ul {
@@ -241,7 +241,7 @@ body { /* global body styles */
     padding:0.8rem;
     background: rgba(42,77,105,0.95);
     border-radius:12px;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+    box-shadow: 0 12px 30px rgba(11,24,35,0.18);
   }
 }
 
