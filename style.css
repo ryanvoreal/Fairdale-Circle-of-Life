@@ -215,7 +215,10 @@ body { /* global body styles */
   }
   .site-nav {
     position: absolute;
-    right: 1rem;
+    right: 0;
+    left: 0;
+    width:0;
+    margin:0 1rem;
     top: 64px;
     transform: translateY(-6px);
   }
@@ -231,6 +234,15 @@ body { /* global body styles */
   .header-inner {
     padding: 0;
     justify-content: space-between;
+  }
+  .site-nav ul{
+    display: none;
+    flex-direction: column;
+    gap:0.6rem;
+    padding:0.8rem;
+    background: rgba(42,77,105,0.95);
+    border-radius:12px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.18);
   }
 }
 
