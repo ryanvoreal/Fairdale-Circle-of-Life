@@ -193,8 +193,7 @@ body { /* global body styles */
   .site-header {
     width: 100%;
     left:0;
-    transform:translateX();
-    margin-top:0;
+    transform:none;
     border-radius:0;
     padding: 0.5rem 1rem;
     background: rgba(42,77,105,0.9);
