@@ -1,0 +1,295 @@
+:root { /* colors and typography */
+  font-family: Inter, sans-serif;
+  font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
+  --deep-blue: #2a4d69;
+  --sky: #4b86b4;
+  --soft-gold: #f5d76e;
+  --cream: #f5edd3;
+  --text: #333333;
+  --gray: #666666;
+}
+@supports (font-variation-settings: normal) {
+  :root { font-family: InterVariable, sans-serif; }
+}
+body { /* global body styles */
+  margin: 0;
+  background-color: var(--cream);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.container { /* global content wrapper */
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.site-header { /* sticky header */
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  z-index: 1000;
+  padding: 0.3rem 0;
+  background: rgba(42, 77, 105, 0.55); /* thin glass */
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  transition: background 240ms ease, box-shadow 240ms ease, transform 240ms ease;
+  box-shadow: 0 6px 18px rgba(11, 24, 35, 0.06);
+  margin-top: 0.9rem;
+  border-radius: 5rem;
+}
+
+.site-header.scrolled { /* solid header on scroll */
+  background: rgba(42, 77, 105, 0.9);
+  box-shadow: 0 10px 30px rgba(11, 24, 35, 0.12);
+  transform: translateY(0);
+}
+
+/* inner layout */
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 90%;
+  padding: 0 1rem;
+  min-height: 64px;
+}
+
+/* branding */
+.site-title {
+  color: var(--soft-gold);
+  font-size: 1.25rem;
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  display: flex; 
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.site-title:hover{ /* hover effect on site title */
+    text-decoration: none;
+      transform: scale(1.25) ease ;
+}
+/* show a small tagline on larger screens */
+.site-tagline {
+  display: none;
+  color: rgba(255,255,255,0.85);
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-left: 0.4rem;
+  opacity: 0.95;
+}
+
+/* nav container pill */
+.site-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0.35rem;
+  align-items: center;
+  background: rgba(255,255,255,0.03);
+  border-radius: 999px;
+  transition: background 180ms ease, box-shadow 180ms ease;
+}
+
+/* links */
+.site-nav a {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--cream);
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  transition: background 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+  backdrop-filter: none;
+}
+
+/* hover / focus states */
+.site-nav a:hover,
+.site-nav a:focus {
+  background: rgba(255,255,255,0.09);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(11, 24, 35, 0.09);
+  outline: none;
+}
+
+/* subtle pressed state */
+.site-nav a:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* primary CTA inside nav */
+.site-nav a.primary {
+  background: linear-gradient(180deg, #ffe87c, #d4a500);
+  color: var(--deep-blue);
+  box-shadow: 0 6px 0 rgba(183,139,0,0.9), 0 10px 20px rgba(0,0,0,0.12);
+  font-weight: 800;
+}
+/* primary CTA hover */
+.site-nav a.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 rgba(183,139,0,0.95), 0 12px 28px rgba(0,0,0,0.15);
+}
+
+/* responsive: collapse nav into a toggle on small screens */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--cream);
+  font-size: 1.1rem;
+  padding: 0.35rem;
+  border-radius: 6px;
+}
+/* toggle hover/focus */
+@media (max-width: 780px) {
+  .header-inner { padding: 0 0.75rem; }
+  .site-tagline { display: none; }
+  .site-nav {
+    position: absolute;
+    right: 1rem;
+    top: 64px;
+    transform: translateY(-6px);
+  }
+  .site-nav ul { /* hide nav by default on small screens */
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 0.6rem;
+    background: rgba(42,77,105,0.95);
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(11,24,35,0.18);
+    display: none;
+    min-width: 180px;
+  }
+  .site-nav.open ul { display: flex; } /* show nav when open */
+  .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
+  .site-title { font-size: 1.05rem; }
+}
+
+/* respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .site-header,
+  .site-nav a,
+  .site-nav ul,
+  .site-header.scrolled {
+    transition: none !important;
+  }
+}
+
+/* hero section */
+.hero {
+  padding-top:8rem;
+  background: 
+    linear-gradient(rgba(42, 77, 105, 0.8), rgba(42, 77, 105, 0.8)),
+    url("https://civicwell.org/wp-content/uploads/2013/07/feature-cultivating-community-gardens.jpg") center/cover no-repeat;
+  padding: 5rem 0;
+  color: white;
+  position: relative;
+  box-shadow: inset 0 -4px 10px rgba(0,0,0,0.3);
+}
+/* hero inner layout */
+.hero-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+/* hero text content */
+.hero-content {
+  flex: 1 1 500px;
+}
+.hero-content p{
+    font-size:1.2rem;
+    color: var(--cream);
+}
+
+.hero-title {
+  font-size: 4rem;
+  color: var(--soft-gold);
+  margin-bottom: 1rem;
+}
+/* hero buttons */
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  color: var(--deep-blue);
+  background: linear-gradient(to bottom, #ffe87c, #d4a500);
+  box-shadow: 0 5px 0 #b78b00, 0 8px 15px rgba(0, 0, 0, 0.2), inset 0 2px 3px rgba(255,255,255,0.5);
+  transition: all 0.3s ease;
+}
+.btn:hover { /* hover effect */
+  transform: translateY(-2px);
+  box-shadow: 0 7px 0 #b78b00, 0 10px 20px rgba(0, 0, 0, 0.25), inset 0 2px 3px rgba(255,255,255,0.5);
+}
+.btn:active { /* pressed effect */
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 #b78b00;
+}
+
+btn.primary {
+  background: var(--green);
+  color: white;
+  border: none;
+}
+
+.btn.primary:hover {
+  background: #1b5e20;
+  box-shadow: 0 4px 15px rgba(27, 94, 32, 0.3);
+}
+
+.hero-note {
+  margin-top: 1rem;
+  color: var(--cream);
+}
+
+.site-nav ul{
+    flex-direction: row;
+    align-items: center;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.logo{
+    text-decoration: none;
+    color:inherit;
+    gap: 0.6rem;
+    display: flex;
+    align-items: center;
+}
+
+.brand {
+    display: flex;
+    gap: 0.2rem;
+    align-items: center;
+}
+
+.logo img{ /* logo image styles */
+    height:36px;
+    width:auto;
+    display:block;
+    border-radius: 6px;
+}
+
