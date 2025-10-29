@@ -199,6 +199,7 @@ body { /* global body styles */
     background: rgba(42,77,105,0.9);
     box-shadow: 0 6px 18px rgba(11,24,35,0.12);
     z-index:1000;
+    margin-top:0;
   }
   .nav-toggle{
     display:inline-flex;
@@ -218,7 +219,7 @@ body { /* global body styles */
     left: 0;
     width:0;
     margin:0 1rem;
-    top: 0;
+    top: 60px;
     transform: translateY(-6px);
   }
   .site-nav.open ul {
