@@ -218,7 +218,7 @@ body { /* global body styles */
     left: 0;
     width:0;
     margin:0 1rem;
-    top: 60px;
+    top: 0;
     transform: translateY(-6px);
   }
   .site-nav.open ul {
