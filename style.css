@@ -261,11 +261,10 @@ body { /* global body styles */
   background: 
     linear-gradient(rgba(42, 77, 105, 0.8), rgba(42, 77, 105, 0.8)),
     url("https://civicwell.org/wp-content/uploads/2013/07/feature-cultivating-community-gardens.jpg") center/cover no-repeat;
-  padding: 5rem 0;
+  padding: 8rem 0;
   color: white;
   position: relative;
   box-shadow: inset 0 -4px 10px rgba(0,0,0,0.3);
-  height:100vh;
 }
 /* hero inner layout */
 .hero-inner {
