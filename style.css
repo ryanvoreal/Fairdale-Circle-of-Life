@@ -152,29 +152,7 @@ body { /* global body styles */
   border-radius: 6px;
 }
 /* toggle hover/focus */
-@media (max-width: 780px) {
-  .header-inner { padding: 0 0.75rem; }
-  .site-tagline { display: none; }
-  .site-nav {
-    position: absolute;
-    right: 1rem;
-    top: 64px;
-    transform: translateY(-6px);
-  }
-  .site-nav ul { /* hide nav by default on small screens */
-    flex-direction: column;
-    gap: 0.4rem;
-    padding: 0.6rem;
-    background: rgba(42,77,105,0.95);
-    border-radius: 12px;
-    box-shadow: 0 12px 30px rgba(11,24,35,0.18);
-    display: none;
-    min-width: 180px;
-  }
-  .site-nav.open ul { display: flex; } /* show nav when open */
-  .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
-  .site-title { font-size: 1.05rem; }
-}
+
 
 /* respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
