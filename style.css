@@ -170,10 +170,8 @@ body { /* global body styles */
 @media (max-width: 780px) {
   .site-header {
     width: 90%;
-    left:0;
+    left:auto;
     margin-top:0;
-	margin-right:auto;
-	margin-left:auto;
     transform:none;
     border-radius:0;
     padding: 0.3rem 0;
