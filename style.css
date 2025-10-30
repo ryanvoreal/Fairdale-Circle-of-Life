@@ -171,6 +171,7 @@ body { /* global body styles */
   .site-header {
     width: 100%;
     left:0;
+    top:0
     transform:none;
     border-radius:0;
     padding: 0.3rem 0;
