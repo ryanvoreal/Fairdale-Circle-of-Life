@@ -212,6 +212,8 @@ body { /* global body styles */
   }
   .site-title {
     font-size:1rem;
+	font-weight:800;
+	color:var(--soft-gold);
   }
   .nav-toggle:hover{
     background: rgba(255,255,255,0.2);
@@ -219,6 +221,7 @@ body { /* global body styles */
   .header-inner {
     padding: 0;
     justify-content: space-between;
+	align-items: center;
   }
   .site-nav ul{
     display: none;
@@ -228,6 +231,9 @@ body { /* global body styles */
     background: rgba(42,77,105,0.95);
     border-radius:12px;
     box-shadow: 0 12px 30px rgba(11,24,35,0.18);
+  }
+  body{
+	padding-top: 72px;
   }
 }
 
