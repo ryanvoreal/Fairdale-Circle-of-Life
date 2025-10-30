@@ -71,6 +71,7 @@ body { /* global body styles */
   display: flex; 
   align-items: center;
   gap: 0.6rem;
+  transition: scale 180ms ease;
 }
 
 .site-title:hover{ /* hover effect on site title */
