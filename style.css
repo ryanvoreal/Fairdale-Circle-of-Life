@@ -208,7 +208,14 @@ body { /* global body styles */
     width: 100%;
     background: rgba(42, 77, 105, 0.95);
     top: calc(64px + 0.5rem); /* dynamically offset by header min-height + padding */
-    transform: translateY(-6px);
+    transform: translateY(-10px);
+	backdrop-filter: blur(12px) saturate(150%);
+	-webkit-backdrop-filter: blur(12px) saturate(150%);
+	box-shadow: 0 12px 30px rgba(11,24,35,0.18);
+	border-radius: 12px;
+	padding: 0.5rem 1rem;
+	transition: all 0.3s ease;
+	z-index: 1500;
   }
   .site-nav.open ul {
     display: flex;
