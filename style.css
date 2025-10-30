@@ -154,15 +154,7 @@ body { /* global body styles */
 /* toggle hover/focus */
 
 
-/* respect reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .site-header,
-  .site-nav a,
-  .site-nav ul,
-  .site-header.scrolled {
-    transition: none !important;
-  }
-}
+
 .nav-toggle{
   display:none
 }
@@ -200,6 +192,12 @@ body { /* global body styles */
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     transition: all 0.25s ease;
   }
+  .site-nav.open{
+	max-height: calc(100vh - 64px);
+	opacity: 1;
+	transform: translateY(0);
+	padding-bottom: 1rem;
+  }
   .site-nav {
     position: fixed;
 	top:64px;
@@ -220,6 +218,8 @@ body { /* global body styles */
   }
   .site-nav.open ul {
     display: flex;
+	flex-direction:column;
+	gap: 0.8rem;
   }
   .site-title {
     font-size:1rem;
