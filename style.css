@@ -217,7 +217,7 @@ body { /* global body styles */
     right: 0;
     left: 0;
     width: auto;
-    margin:0 1rem;
+    margin:0;
     top: 64px;
     transform: translateY(-6px);
   }
