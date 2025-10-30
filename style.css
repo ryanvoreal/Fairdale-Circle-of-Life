@@ -201,11 +201,12 @@ body { /* global body styles */
     transition: all 0.25s ease;
   }
   .site-nav {
-    position: absolute;
+    position: fixed;
+	top:64px;
     right: 0;
     left: 0;
-    width: auto;
-    margin:0;
+    width: 100%;
+    background: rgba(42, 77, 105, 0.95);
     top: calc(64px + 0.5rem); /* dynamically offset by header min-height + padding */
     transform: translateY(-6px);
   }
