@@ -173,7 +173,7 @@ body { /* global body styles */
     left:0;
     transform:none;
     border-radius:0;
-    padding: 0.5rem 1rem;
+    padding: 0.3rem 0;
     background: rgba(42,77,105,0.9);
     box-shadow: 0 6px 18px rgba(11,24,35,0.12);
     z-index:1000;
@@ -196,7 +196,7 @@ body { /* global body styles */
     left: 0;
     width: auto;
     margin:0;
-    top: 64px;
+    top: calc(64px + 0.5rem); /* dynamically offset by header min-height + padding */
     transform: translateY(-6px);
   }
   .site-nav.open ul {
