@@ -76,7 +76,7 @@ body { /* global body styles */
 
 .site-title:hover{ /* hover effect on site title */
     text-decoration: none;
-      transform: scale(1.25) ease ;
+    scale: 1.05;
 }
 /* show a small tagline on larger screens */
 .site-tagline {
