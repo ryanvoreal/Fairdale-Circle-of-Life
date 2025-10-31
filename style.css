@@ -363,3 +363,66 @@ btn.primary {
     border-radius: 6px;
 }
 
+/* mission section */
+.mission {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  padding: 3.5rem 0;
+  background: linear-gradient(180deg, rgba(42,77,105,0.02), rgba(255,255,255,0.01));
+  border-radius: 1rem;
+  margin:0 15rem;
+}
+
+
+
+/* mission statement card */
+.mission-statement {
+  flex: 1;
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(245,237,211,0.9));
+  color: var(--deep-blue);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(11,24,35,0.06);
+  border-left: 6px solid var(--soft-gold);
+  line-height: 1.6;
+  transition: transform 360ms cubic-bezier(.2,.8,.2,1), opacity 360ms ease;
+}
+
+/* typography within statement */
+.mission-statement h2 {
+  margin: 0 0 0.5rem 0;
+  color: var(--deep-blue);
+  font-size: 2rem;
+  letter-spacing: 0.2px;
+  font-weight: 800;
+}
+
+.mission-statement p {
+  margin: 0;
+  color: var(--text);
+  font-size: 1.1rem;
+  opacity: 0.95;
+}
+
+
+/* responsive adjustments */
+@media (max-width: 780px) {
+  .mission {
+    flex-direction: column;
+    padding: 2rem 0;
+  }
+  .mission img {
+    width: 100%;
+    max-width: 720px;
+  }
+  .mission-statement {
+    width: 100%;
+    padding: 1.25rem;
+    border-left: 4px solid var(--soft-gold);
+    text-align: center;
+  }
+  .mission-statement h2 {
+    font-size: 1.25rem;
+  }
+}
