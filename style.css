@@ -426,3 +426,46 @@ btn.primary {
     font-size: 1.25rem;
   }
 }
+
+.efforts {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding:40px;
+
+}
+
+.card {
+  border-radius:15px;
+  padding:20px;
+  width:280px;
+  text-align: center;
+  color:white;
+  backdrop-filter: blur(8px) saturate(120%);
+  transition: transform 240ms ease, box-shadow 240ms ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card h3{
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: var(--soft-gold);
+}
+
+.card p{
+    font-size:1rem;
+    color: var(--cream);
+    opacity:0.95;
+    line-height:1.4;
+}
+
+#gardenCard{
+  background: 
+    linear-gradient(rgba(42, 77, 105, 0.75), rgba(42, 77, 105, 0.75)),
+    url("your-image.jpg") center/cover no-repeat;
+}
