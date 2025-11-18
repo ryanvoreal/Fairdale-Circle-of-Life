@@ -78,7 +78,7 @@ body { /* global body styles */
 
 .site-title:hover { /* hover effect on site title */
   text-decoration: none;
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 /* show a small tagline on larger screens */
@@ -206,7 +206,7 @@ body { /* global body styles */
   }
   .site-nav {
     position: fixed;
-	top:64px;
+	top:50px;
     right: 0;
     left: 0;
     width: 100%;
@@ -432,13 +432,13 @@ btn.primary {
   justify-content: center;
   gap: 2.5rem;
   flex-wrap: wrap;
-  padding:3rem 2rem 6rem;
+  padding:1rem 2rem 6rem;
 
 }
 
 .card {
   border-radius:15px;
-  padding:20px;
+  padding:30px 20px;
   width:280px;
   text-align: center;
   color:white;
@@ -469,20 +469,17 @@ box-shadow: 0 10px 25px rgba(11, 24, 35, 0.1);
 
 #gardenCard{
   background: 
-    linear-gradient(rgba(42, 77, 105, 0.6), rgba(42, 77, 105, 0.7)),
-    url("https://ecogardener.com/cdn/shop/articles/Gardening_Tips_Planting_Vegetables_By_Season.jpg?v=1722335432") center/cover no-repeat;
+    linear-gradient(rgba(42, 77, 105, 0.6), rgba(42, 77, 105, 0.7));
 }
 
 #commCard{
   background: 
-    linear-gradient(rgba(42, 77, 105, 0.6), rgba(42, 77, 105, 0.7)),
-    url("https://rs.projects-abroad.org/v1/hero/product-5c643aca6c82d.[1600].jpeg") center/cover no-repeat;
-}
+    linear-gradient(rgba(42, 77, 105, 0.6), rgba(42, 77, 105, 0.7));
+  }
 
 #skillCard{
   background: 
-    linear-gradient(rgba(42, 77, 105, 0.6), rgba(42, 77, 105, 0.7)),
-    url("https://ccparent.com/wp-content/uploads/Volunteers-Holding-Dirt-in-Hands-scaled.jpg") center/cover no-repeat;
+    linear-gradient(rgba(42, 77, 105, 0.6), rgba(42, 77, 105, 0.7));
 }
 
 .card::before {
