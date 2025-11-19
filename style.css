@@ -257,7 +257,7 @@ body { /* global body styles */
   }
   .hero {
     padding-top:6rem;
-    background-position: top;
+    background-position: center top;
   }
   .hero-inner {
     flex-direction: column;
