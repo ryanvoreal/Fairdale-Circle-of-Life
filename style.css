@@ -157,7 +157,11 @@ body { /* global body styles */
 }
 /* toggle hover/focus */
 
-
+@media (max-width: 780px) {
+  .hero {
+    padding-top: 6rem;
+  }
+}
 
 .nav-toggle{
   display:none
