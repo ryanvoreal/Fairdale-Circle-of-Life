@@ -171,7 +171,7 @@ body { /* global body styles */
     width: 100%;
     margin-top: 0;
     transform: none;
-
+    border-radius: none;
     padding: 0.6rem 1rem;
     background: rgba(42, 77, 105, 0.75);
     backdrop-filter: blur(12px) saturate(150%);
