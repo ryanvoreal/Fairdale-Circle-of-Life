@@ -1,75 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Fairdale Circle of Care</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/x-icon" href="images/Fairdale_High_logo_template_300.png">
-</head>
-<body>
+  </head>
 
+  <body>
+    <!-- ========== HEADER NAVIGATION ======= -->
     <header class="site-header" role="banner">
-        <div class="container header-inner">
-            <div class="brand">
-                <a href="index.html" class="logo">
-                        <img src="https://cmsv2-assets.apptegy.net/uploads/21334/logo/24148/Fairdale_High_logo_template_300.png" alt="Fairdale Circle of Care Logo" />
-                        <h1 class="site-title">Fairdale Circle of Care</h1>
-                </a>
-                <p class="site-tagline">Building compassion through action — helping our local homeless community, one step at a time.</p>
-            </div>
-            <button class="nav-toggle" aria-label="Toggle navigation">></button>
-            <nav class="site-nav" role="navigation" aria-label="Main navigation">
-                <ul>
-                    <li><a href="about.html">About</a></li>
-                    <li><a  href="projects.html">Projects</a></li>
-                    <li><a  href="get-involved.html">Get Involved</a></li>
-                    <li><a  href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
+      <div class="container header-inner">
+        <div class="brand">
+          <a href="index.html" class="logo">
+            <img src="https://cmsv2-assets.apptegy.net/uploads/21334/logo/24148/Fairdale_High_logo_template_300.png" alt="Fairdale Circle of Care Logo" />
+            <h1 class="site-title">Fairdale Circle of Care</h1>
+          </a>
+          <p class="site-tagline">Building compassion through action — helping our local homeless community, one step at a time.</p>
         </div>
+        <button class="nav-toggle" aria-label="Toggle navigation">></button>
+        <nav class="site-nav" role="navigation" aria-label="Main navigation">
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="get-involved.html">Get Involved</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <!-- Dark Mode Toggle -->
+        <label class="theme-switch">
+          <input type="checkbox" id="theme-toggle" class="theme-checkbox" />
+          <span class="slider">
+            <div class="star star_1"></div>
+            <div class="star star_2"></div>
+            <div class="star star_3"></div>
+            <svg viewBox="0 0 16 16" class="cloud_1 cloud">
+              <path
+                transform="matrix(.77976 0 0 .78395-299.99-418.63)"
+                fill="#fff"
+                d="m391.84 540.91c-.421-.329-.949-.524-1.523-.524-1.351 0-2.451 1.084-2.485 2.435-1.395.526-2.388 1.88-2.388 3.466 0 1.874 1.385 3.423 3.182 3.667v.034h12.73v-.006c1.775-.104 3.182-1.584 3.182-3.395 0-1.747-1.309-3.186-2.994-3.379.007-.106.011-.214.011-.322 0-2.707-2.271-4.901-5.072-4.901-2.073 0-3.856 1.202-4.643 2.925"
+              ></path>
+            </svg>
+          </span>
+        </label>
+      </div>
     </header>
 
+    <!-- ========= HERO SECTION ========= -->
     <main id="main" class="hero" role="main">
-        <div class="container hero-inner">
-            <div class="hero-content reveal">
-                <h2 class="hero-title">Together, We Can Make a Difference</h2>
-                <p class="hero-lead">
-                    We’re starting small but dreaming big — from helping the homeless in our community to creating
-          spaces like the <strong>Fairdale Garden</strong>, where students and neighbors can grow food, learn life
-          skills, and lend a helping hand.</p>
-                <div class="hero-cta">
-                    <a class="btn btn-primary" href="#get-involved">Volunteer</a>
-                    <a class="btn" href="#projects">See Projects</a>
-                </div>
-                <p class="hero-note">Every hand helps — start where you are, with what you have.</p>
-            </div>
+      <div class="container hero-inner">
+        <div class="hero-content reveal">
+          <h2 class="hero-title">Together, We Can Make a Difference</h2>
+          <p class="hero-lead">
+            We're starting small but dreaming big — from helping the homeless in our community to creating
+            spaces like the <strong>Fairdale Garden</strong>, where students and neighbors can grow food, learn life
+            skills, and lend a helping hand.
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#get-involved">Volunteer</a>
+            <a class="btn" href="#projects">See Projects</a>
+          </div>
+          <p class="hero-note">Every hand helps — start where you are, with what you have.</p>
         </div>
-
+      </div>
     </main>
-        <div class="mission">
-        <div class="mission-statement">
-            <h2>Our Mission</h2>
-            <p>The Fairdale Garden brings students and neighbors together to learn, grow, and help others. Through the Circle of Care, we connect our community with local resources, opportunities, and hope.</p>
-        </div>
+
+    <!-- ===== MISSION SECTION ====== -->
+    <div class="mission">
+      <div class="mission-statement">
+        <h2>Our Mission</h2>
+        <p>The Fairdale Garden brings students and neighbors together to learn, grow, and help others. Through the Circle of Care, we connect our community with local resources, opportunities, and hope.</p>
+      </div>
     </div>
+
+    <!-- =======EFFORTS/CARDS SECTION ===== -->
     <section class="efforts">
-        <div class="card" id="gardenCard">
-            <h3>Fairdale Garden</h3>
-            <p>Growing fresh food and compassion through community gardening.</p>
-            <a class="btn" href="projects.html">Learn More</a>
-        </div>
-        <div class="card" id="commCard">
-            <h3>Community Outreach</h3>
-            <p>Supporting our homeless neighbors with care and connection.</p>
-            <a class="btn" href="get-involved.html">Learn More</a>
-        </div>
-        <div class="card" id="skillCard">
-            <h3>Sklls For Life</h3>
-            <p>Teaching practical skills for a stronger, kinder community.</p>
-            <a class="btn" href="projects.html">Learn More</a>
-        </div>
+      <div class="card" id="gardenCard">
+        <h3>Fairdale Garden</h3>
+        <p>Growing fresh food and compassion through community gardening.</p>
+        <a class="btn" href="projects.html">Learn More</a>
+      </div>
+      <div class="card" id="commCard">
+        <h3>Community Outreach</h3>
+        <p>Supporting our homeless neighbors with care and connection.</p>
+        <a class="btn" href="get-involved.html">Learn More</a>
+      </div>
+      <div class="card" id="skillCard">
+        <h3>Sklls For Life</h3>
+        <p>Teaching practical skills for a stronger, kinder community.</p>
+        <a class="btn" href="projects.html">Learn More</a>
+      </div>
     </section>
+
+
+    <!-- ======== IMPACT STATISTICS SECTION ======== -->
+    <section class="impact">
+      <div class="container">
+        <h2>Our Impact</h2>
+        <div class="impact-stats">
+          <div class="stat">
+            <span class="count" data-target="100">0</span>
+            <p>Meals Served</p>
+          </div>
+          <div class="stat">
+            <span class="count" data-target="100">0</span>
+            <p>Students Involved</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==== FAQ SECTION ========-->
+    <section class="faq">
+      <div class="container">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+          <button class="faq-question">What is the Fairdale Circle of Care?</button>
+          <div class="faq-answer">
+            <p>We are a student and community initiative focused on helping our homeless neighbors, building gardens, and teaching life skills through service projects.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">How can I volunteer?</button>
+          <div class="faq-answer">
+            <p>You can sign up through our <a href="get-involved.html">Get Involved</a> page. Opportunities include gardening, food drives, and event support.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Do I need prior experience?</button>
+          <div class="faq-answer">
+            <p>No experience is required! We welcome anyone willing to lend a helping hand and learn along the way.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============ GET INVOLVED SECTION =========== -->
+    <section class="get-involved" id="get-involved">
+      <div class="container">
+        <h2>Get Involved</h2>
+        <p>There are many ways to make a difference. Choose how you'd like to help:</p>
+        <ul>
+          <li><strong>Volunteer:</strong> Join us for gardening, food drives, and community events.</li>
+          <li><strong>Partner:</strong> Collaborate with your business or school to expand our impact.</li>
+        </ul>
+        <a class="btn btn-primary" href="get-involved.html">Sign Up Today</a>
+      </div>
+    </section>
+
+    <!-- ========= FOOTER ========= -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-about">
+          <h3>Fairdale Circle of Care</h3>
+          <p>Building compassion through action — helping our local homeless community, one step at a time.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="get-involved.html">Get Involved</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact Us</h4>
+          <p>Email: <a href="mailto:info@fairdalecare.org"></a></p>
+          <p>Phone: </p>
+          <p>Address: Fairdale High School, Louisville, KY</p>
+        </div>
+        <div class="footer-social">
+          <h4>Follow Us</h4>
+          <a href="#" aria-label="Facebook">🌐 Facebook</a><br>
+          <a href="#" aria-label="Instagram">📸 Instagram</a><br>
+          <a href="#" aria-label="Twitter">🐦 Twitter</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Fairdale Circle of Care. All rights reserved.</p>
+      </div>
+    </footer>
+
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
