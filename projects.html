@@ -1,80 +1,248 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Fairdale Circle of Care</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" type="image/x-icon" href="images/Fairdale_High_logo_template_300.png">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fairdale Circle of Care</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/x-icon" href="images/Fairdale_High_logo_template_300.png">
 </head>
 <body>
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <div class="brand">
+        <a href="index.html" class="logo">
+          <img src="https://cmsv2-assets.apptegy.net/uploads/21334/logo/24148/Fairdale_High_logo_template_300.png" alt="Fairdale Circle of Care Logo" />
+          <h1 class="site-title">Fairdale Circle of Care</h1>
+        </a>
+        <p class="site-tagline">Building compassion through action — helping our local homeless community, one step at a time.</p>
+      </div>
+      <button class="nav-toggle" aria-label="Toggle navigation">></button>
+      <nav class="site-nav" role="navigation" aria-label="Main navigation">
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="get-involved.html">Get Involved</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <label class="theme-switch">
+          <input type="checkbox" id="theme-toggle" class="theme-checkbox" />
+          <span class="slider">
+            <div class="star star_1"></div>
+            <div class="star star_2"></div>
+            <div class="star star_3"></div>
+            <svg viewBox="0 0 16 16" class="cloud_1 cloud">
+              <path
+                transform="matrix(.77976 0 0 .78395-299.99-418.63)"
+                fill="#fff"
+                d="m391.84 540.91c-.421-.329-.949-.524-1.523-.524-1.351 0-2.451 1.084-2.485 2.435-1.395.526-2.388 1.88-2.388 3.466 0 1.874 1.385 3.423 3.182 3.667v.034h12.73v-.006c1.775-.104 3.182-1.584 3.182-3.395 0-1.747-1.309-3.186-2.994-3.379.007-.106.011-.214.011-.322 0-2.707-2.271-4.901-5.072-4.901-2.073 0-3.856 1.202-4.643 2.925"
+              ></path>
+            </svg>
+          </span>
+        </label>
+      </nav>
+    </div>
+  </header>
 
-    <header class="site-header" role="banner">
-        <div class="container header-inner">
-            <div class="brand">
-                <a href="index.html" class="logo">
-                        <img src="https://cmsv2-assets.apptegy.net/uploads/21334/logo/24148/Fairdale_High_logo_template_300.png" alt="Fairdale Circle of Care Logo" />
-                        <h1 class="site-title">Fairdale Circle of Care</h1>
-                </a>
-                <p class="site-tagline">Building compassion through action — helping our local homeless community, one step at a time.</p>
-            </div>
-            <button class="nav-toggle" aria-label="Toggle navigation">></button>
-            <nav class="site-nav" role="navigation" aria-label="Main navigation">
-                <ul>
-                    <li><a href="about.html">About</a></li>
-                    <li><a  href="projects.html">Projects</a></li>
-                    <li><a  href="get-involved.html">Get Involved</a></li>
-                    <li><a  href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+  <main id="main" class="hero" role="main">
+    <div class="container hero-inner">
+      <div class="hero-content reveal">
+        <h2 class="hero-title">Building Projects That Create Change</h2>
+        <p class="hero-lead">
+          From innovative student initiatives to community-driven efforts like the <strong>Fairdale Garden</strong>,
+          our projects aim to make a lasting impact. Together, we're turning ideas into action — growing, learning,
+          and improving lives one project at a time.
+        </p>
+        <p class="hero-note">Small actions build big change — every project starts with a single idea.</p>
+      </div>
+    </div>
+  </main>
 
-    <main id="main" class="hero" role="main">
-        <div class="container hero-inner">
-            <div class="hero-content reveal">
-                <h2 class="hero-title">Building Projects That Create Change</h2>
-                <p class="hero-lead">
-                    From innovative student initiatives to community-driven efforts like the <strong>Fairdale Garden</strong>,
-    our projects aim to make a lasting impact. Together, we’re turning ideas into action — growing, learning,
-    and improving lives one project at a time.</p>
+  <section class="projects container" aria-label="Current projects">
+  <div class="projects-grid">
 
-                <p class="hero-note">Small actions build big change — every project starts with a single idea.</p>
-            </div>
-        </div>
+    <!-- Project 1 -->
+    <div class="project-card-wrapper">
+      <div class="project-slider-wrapper">
+        <button class="slide-btn prev" aria-label="Previous slide">&#10094;</button>
 
-    </main>
-    <section class="projects container" aria-label="Current projects">
-        <h3 class="section-title">Projects</h3>
-
-        <div class="projects-grid">
-            <article class="project-card" role="article">
-
-                <div class="project-body">
-                    <h4 class="project-title">Food Drive for the Homeless</h4>
-                    <p >
-                        Our school is currently leading a community-wide food drive to support people experiencing homelessness. Each Crew is responsible for collecting a specific category of food items, promoting the drive, and finding creative ways to bring in donations — even if students cannot donate directly.
-                        </p>
-                        <p><strong>What We’re Collecting:</strong> Non-perishable items such as canned goods, rice, pasta, boxed meals, peanut butter, and other long-lasting foods.</p>
-                        <p><strong>Timeline:</strong></p>
-                    <ul>
-                        <li><strong>Nov 25 — Crew Planning Day:</strong> Crews create collection plans and brainstorm ways to spread awareness.</li>
-                        <li><strong>Dec 1 — Collection Begins:</strong> Students start bringing in food items. Crew Leaders gather donations. Reach out to family, friends, and community groups.</li>
-                        <li><strong>Dec 2–3 — Poster Competition:</strong> Crews design posters to advertise the food drive online or in school.</li>
-                        <li><strong>Dec 12 — Final Collection & Delivery:</strong> STLP students collect all items and deliver them to the Youth Service Center.</li>
-                    </ul>
-                    <p><strong>Impact Goal:</strong> Provide meals for families and individuals in need while building community leadership among students.</p>
-
-
-                    <div class="project-meta">
-                        <span class="project-status" aria-hidden="true">Active • November 25 – December 12</span>
-                        <progress class="project-progress" value="10" max="100" aria-label="Project progress">10%</progress>
-                        <a class="project-link" href="projects/fairdale-garden.html">Learn more</a>
-                    </div>
+        <div class="project-slider">
+          <!-- Project Card -->
+          <div class="slide active">
+            <article class="project-card">
+              <div class="project-body modern">
+                <div class="project-header">
+                  <span class="project-badge">Last Project</span>
+                  <h4 class="project-title">Food Drive for the Homeless</h4>
+                  <p class="project-subtitle"><span class="project-activity complete">Complete</span> • Nov 25 – Dec 12</p>
                 </div>
+
+                <p class="project-description">
+                 We are hosting a school-wide food drive to support members of our homeless community.
+                Each Crew is assigned a food category to collect and is encouraged to promote the drive
+                through posters, social outreach, and community engagement.
+
+                </p>
+                <p class="project-collecting"><strong>We're Collecting:</strong> Non-perishable foods such as canned goods, dry rice, pasta, peanut butter, and boxed meals.</p>
+
+                <h4>Timeline</h4>
+                <div class="timeline">
+                  <div class="step">
+                    <div class="step-marker"></div>
+                    <div class="step-content">
+                      <h5>Nov 25 — Crew Planning Day</h5>
+                      <p>Crews create their plan for collecting their assigned food items.</p>
+                    </div>
+                  </div>
+                  <div class="step">
+                    <div class="step-marker"></div>
+                    <div class="step-content">
+                      <h5>Dec 1 — Collection Begins</h5>
+                      <p>Students begin bringing in items; Crew Leaders collect donations daily.</p>
+                    </div>
+                  </div>
+                  <div class="step">
+                    <div class="step-marker"></div>
+                    <div class="step-content">
+                      <h5>Dec 2–3 — Poster Competition</h5>
+                      <p>Crews design posters to advertise the drive on campus and social media.</p>
+                    </div>
+                  </div>
+                  <div class="step">
+                    <div class="step-marker"></div>
+                    <div class="step-content">
+                      <h5>Dec 12 — Final Collection Day</h5>
+                      <p>STLP students gather all items and deliver them to the Youth Service Center.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <p class="project-impact"><strong>Impact Goal:</strong> Provide meals for families in need while building student leadership.</p>
+                <div class="project-progress-container">
+                  <span class="progress-label">Progress: 100%</span>
+                  <progress class="project-progress complete" value="100" max="100"></progress>
+                </div>
+              </div>
             </article>
+          </div>
+
+          <!-- Project Images -->
+           <div class="slide-projpage">
+            <article class="project-card results">
+              <div class="project-body modern">
+                <div class="project-header">
+                  <span class="project-badge">Project Results</span>
+                  <h4 class="project-title">Food Drive for the Homeless</h4>
+                  <p class="project-subtitle">
+                    <span class="project-activity complete">Complete</span> • Final Impact
+                  </p>
+                </div>
+          
+                <p class="project-description">
+                  Thanks to our students, staff, and community partners, the food drive
+                  exceeded its goals and directly supported local families in need.
+                </p>
+          
+                <h4>What We Achieved</h4>
+                <ul class="project-results-list">
+                  <li><strong>560+</strong> non‑perishable items collected</li>
+                  <ul>
+                    <li><strong>270+</strong> Canned Goods (Beans, Tomatoes, etc.)</li>
+                    <li><strong>120+</strong> Rice/Grains (Rice, Grains, etc.)</li>
+                    <li><strong>90+</strong> Shelf Stable Protein (PB, Jelly, etc.)</li>
+                    <li><strong>60+</strong> Cereal (Froot Loops, Lucky Charms, etc.)</li>
+                  </ul>
+                  <li><strong>40+</strong> families supported</li>
+                  <li><strong>60+</strong> classes participated</li>
+                </ul>
+          
+                <p class="project-impact">
+                  <strong>Lasting Impact:</strong> Students practiced leadership, empathy,
+                  and community organizing while addressing food insecurity.
+                </p>
+                <div class="impact-stats-row">
+                  <div class="impact-stat"><strong>560+</strong><span>Items</span></div>
+                  <div class="impact-stat"><strong>43</strong><span>Families</span></div>
+                  <div class="impact-stat"><strong>60+</strong><span>Classes</span></div>
+                </div>
+              </div>
+            </article>
+           </div>
+          <div class="slide-projpage">
+            <img style="height:auto; width: 70%;" src="images/IMG_8258.jpg" />
+          </div>
+          <div class="slide-projpage">
+            <img src="https://www.hollywoodreporter.com/wp-content/uploads/2022/06/Bruno-Mars-with-SelvaRey-Pina-Colada-H-PUBLICITY-MAIN-2022.jpg?w=1500&h=845&crop=1" /> 
+          </div>
+
         </div>
-    </section>
-    <script src="script.js"></script>
+
+        <button class="slide-btn next" aria-label="Next slide">&#10095;</button>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project-card-wrapper">
+      <div class="project-slider-wrapper">
+        <button class="slide-btn prev" aria-label="Previous slide">&#10094;</button>
+
+        <div class="project-slider">
+          <!-- Project Card -->
+          <div class="slide active">
+            <article class="project-card">
+              <div class="project-body modern">
+                <div class="project-header">
+                  <span class="project-badge">In Development</span>
+                  <h4 class="project-title">New Community Project</h4>
+                  <p class="project-subtitle">Coming Soon</p>
+                </div>
+
+                <p class="project-description">We are preparing a new project to expand our community initiatives</p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <button class="slide-btn next" aria-label="Next slide">&#10095;</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+    <!-- ========= FOOTER ========= -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-about">
+          <h3>Fairdale Circle of Care</h3>
+          <p>Building compassion through action — helping our local homeless community, one step at a time.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="get-involved.html">Get Involved</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact Us</h4>
+          <p>Email: <a href="mailto:info@fairdalecare.org"></a></p>
+          <p>Phone: </p>
+          <p>Address: 1001 Fairdale Rd, Louisville, KY 40118</p>
+        </div>
+        <div class="footer-social">
+          <h4>Follow Us</h4>
+          <a href="#" aria-label="Facebook">🌐 Facebook</a><br>
+          <a href="#" aria-label="Instagram">📸 Instagram</a><br>
+          <a href="#" aria-label="Twitter">🐦 Twitter</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Fairdale Circle of Care. All rights reserved.</p>
+      </div>
+    </footer>
+  <script src="script.js"></script>
 </body>
 </html>
