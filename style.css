@@ -1606,56 +1606,58 @@ html[data-theme="dark"] .project-progress::-webkit-progress-bar {
       padding: 15px;
       margin: 0;
       border-radius: 12px;
+      width: 100%;
+      box-sizing: border-box;
     }
     
     .project-body.modern {
-      padding: 1.5rem 1rem;
+      padding: 1.2rem 1rem;
     }
     
     .project-header {
-      padding: 0.8rem 1rem;
-      margin-bottom: 1rem;
+      padding: 0.7rem 1rem;
+      margin-bottom: 0.8rem;
     }
     
     .project-title {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
     
     .project-subtitle {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
     }
     
     .project-description,
     .project-collecting,
     .project-impact {
-      font-size: 0.95rem;
-      line-height: 1.5;
+      font-size: 0.9rem;
+      line-height: 1.4;
     }
     
     .timeline {
-      padding-left: 1rem;
-      gap: 1rem;
+      padding-left: 0.8rem;
+      gap: 0.8rem;
     }
     
     .step-content h5 {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
     }
     
     .step-content p {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
     }
     
     .project-progress-container {
-      margin-top: 0.5rem;
+      margin-top: 0.4rem;
     }
     
     .project-progress {
-      height: 12px;
+      height: 10px;
     }
     
     .btn {
-      padding: 0.6rem 1rem;
-      font-size: 0.9rem;
+      padding: 0.5rem 0.8rem;
+      font-size: 0.85rem;
     }
   }
 }
@@ -2584,7 +2586,7 @@ html[data-theme="dark"] .footer-bottom p {
     font-size: 0.9rem !important;
   }
   .hero {
-    padding: 4rem 0.75rem 1rem !important;
+    padding: 3.5rem 0.75rem 1rem !important;
     height: auto !important;
   }
   .hero-title {
