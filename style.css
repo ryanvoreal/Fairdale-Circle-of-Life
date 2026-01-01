@@ -1766,12 +1766,14 @@ html[data-theme="dark"] .project-activity {
 .slide-projpage {
   flex: 0 0 100%;
   scroll-snap-align: start;
+  
 }
 
 .slide-projpage{
   display: flex;
   align-items: center;
   justify-content: center;
+  
 }
 
 /* Ensure all slide types have consistent sizing on mobile */
