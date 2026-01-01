@@ -36,6 +36,24 @@ body { /* global body styles */
   overflow-x: hidden;
 }
 
+/* Ensure the root doesn't allow horizontal scrolling — keeps layout clipped to viewport */
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Guard against oversized images or absolutely positioned decorations causing scroll */
+img, picture, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Decorative pseudo-elements that sit outside their containers should not cause page scroll */
+*:before, *:after {
+  box-sizing: border-box;
+}
+
 
 .container { /* global content wrapper */
   max-width: 1100px;
@@ -71,12 +89,23 @@ body { /* global body styles */
 }
 
 
-@media (max-width: 1024px) {
+@media (max-width: 1310px) {
   .site-header {
     width: 60%;
   }
+  .site-nav ul {
+    padding: 0.5rem;
+  }
 }
 
+@media (max-width: 1024px) {
+  .site-header {
+    width: 75%;
+  }
+  .site-nav ul {
+    padding: 0.4rem;
+  }
+}
 
 @media (max-width: 768px) {
   .site-header {
@@ -164,6 +193,9 @@ html[data-theme="dark"] .site-tagline {
   background: rgba(255,255,255,0.03);
   border-radius: 999px;
   transition: background 180ms ease, box-shadow 180ms ease;
+  width: 100%;
+  box-sizing: border-box;
+  flex:1;
 }
 
 
@@ -443,7 +475,7 @@ html[data-theme="dark"] .slider {
     display: flex;
   flex-direction:row;
   gap: 0.8rem;
-  background: rgba(42, 77, 105, 0.5); /* lighter for frosted effect */
+  background: rgba(42, 77, 105, 0.9); /* lighter for frosted effect */
   backdrop-filter: blur(12px) saturate(120%);
   -webkit-backdrop-filter: blur(12px) saturate(120%);
   align-items: center;
@@ -621,10 +653,7 @@ html[data-theme="dark"] .hero-content p {
 }
 
 
-.site-nav ul{
-    flex-direction: row;
-    align-items: center;
-}
+
 
 
 .reveal {
@@ -1464,9 +1493,7 @@ html[data-theme="dark"] .project-progress::-webkit-progress-bar {
   box-sizing: border-box;
 }
 
-.project-slider-wrapper {
-  max-width: 100%;
-}
+
 
 
 /* section heading treatment to read as a distinct banner */
@@ -1486,11 +1513,14 @@ html[data-theme="dark"] .project-progress::-webkit-progress-bar {
 /* grid for project items inside the section */
 .projects-grid {
   display: grid;
-  grid-template-columns: 1fr; /* single column for full width cards */
-  gap: 1.25rem;
-  align-items: start;
+  grid-template-columns: 1fr;
+  gap: 1rem;               /* slightly smaller gap on mobile */
   margin-top: 2rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
+
 
 /* individual project cards inside this section */
 .projects .project {
@@ -1513,6 +1543,7 @@ html[data-theme="dark"] .project-progress::-webkit-progress-bar {
   .project-body.modern {
   padding: 1.5rem;
   border-radius: 12px;
+  font-size: 0.95rem;
   }
 
   .project-header {
@@ -1527,7 +1558,7 @@ html[data-theme="dark"] .project-progress::-webkit-progress-bar {
   }
 
   .projects-grid {
-  grid-template-columns: 1fr;
+  padding: 0;
   gap: 1rem;
   }
 
@@ -1577,6 +1608,7 @@ html[data-theme="dark"] .project-activity {
   min-height:500px;
   display: flex;
   align-items: center;
+  max-width: 100%;
 }
 
 /* Slider Track */
@@ -1611,6 +1643,7 @@ html[data-theme="dark"] .project-activity {
   padding: 20px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   width:100%;
+  
 }
 
 html[data-theme="dark"] .slide .project-card {
