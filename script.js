@@ -150,6 +150,7 @@ sliders.forEach(wrapper => {
 
   const allSlides = slider.querySelectorAll(".slide, .slide-projpage");
   let currentIndex = 1; // start at real first slide
+  let isAnimating = false; // flag to prevent clicks during animation
 
   slider.style.transform = `translateX(-${currentIndex * 100}%)`;
 
@@ -159,6 +160,8 @@ sliders.forEach(wrapper => {
   }
 
   nextBtn?.addEventListener("click", () => {
+    if (isAnimating) return; // Prevent clicking during animation
+    isAnimating = true;
     currentIndex++;
     updateSlider();
 
@@ -167,10 +170,13 @@ sliders.forEach(wrapper => {
         currentIndex = 1;
         updateSlider(false); // jump without animation
       }
+      isAnimating = false; // Re-enable clicks after animation
     }, { once: true });
   });
 
   prevBtn?.addEventListener("click", () => {
+    if (isAnimating) return; // Prevent clicking during animation
+    isAnimating = true;
     currentIndex--;
     updateSlider();
 
@@ -179,6 +185,7 @@ sliders.forEach(wrapper => {
         currentIndex = allSlides.length - 2;
         updateSlider(false); // jump without animation
       }
+      isAnimating = false; // Re-enable clicks after animation
     }, { once: true });
   });
 });

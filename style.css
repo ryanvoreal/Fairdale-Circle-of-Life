@@ -254,6 +254,12 @@ html[data-theme="dark"] .site-tagline {
   display: none;
 }
 
+/* place the theme switch inline in the header next to the hamburger */
+.header-inner .theme-switch {
+  margin-left: 0.5rem;
+  z-index: 2100; /* sit above the mobile nav overlay */
+}
+
 
 .slider {
   position: relative;
@@ -398,7 +404,13 @@ html[data-theme="dark"] .slider {
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     transition: all 0.25s ease;
+    flex-direction: row;
    
+  }
+
+  /* ensure the theme-switch remains visible and aligned on small screens */
+  .header-inner .theme-switch {
+    margin-left: 0.6rem;
   }
   .site-nav.open{
   max-height: calc(100vh - 64px);
@@ -430,11 +442,12 @@ html[data-theme="dark"] .slider {
   }
   .site-nav.open ul {
     display: flex;
-  flex-direction:column;
+  flex-direction:row;
   gap: 0.8rem;
   background: rgba(42, 77, 105, 0.5); /* lighter for frosted effect */
   backdrop-filter: blur(12px) saturate(120%);
   -webkit-backdrop-filter: blur(12px) saturate(120%);
+  align-items: center;
   }
   .site-title {
     font-size:1rem;
@@ -465,6 +478,7 @@ html[data-theme="dark"] .slider {
   .hero {
     padding-top:6rem;
     background-position: center top;
+    max-height:400px;
   }
   .hero-inner {
     flex-direction: column;
@@ -1243,7 +1257,10 @@ html[data-theme="dark"] #skillCard {
   box-shadow: 0 30px 80px rgba(11,24,35,0.12);
   position: relative;
   z-index:2;
+  
 }
+
+
 
 html[data-theme="dark"] .project-body.modern {
   background: rgba(42,58,74,0.95);
@@ -1444,6 +1461,14 @@ html[data-theme="dark"] .project-progress::-webkit-progress-bar {
   overflow-y: visible;
   position: relative;
 }
+.projects .project {
+  box-sizing: border-box;
+}
+
+.project-slider-wrapper {
+  max-width: 100%;
+}
+
 
 /* section heading treatment to read as a distinct banner */
 .projects .section-title {
@@ -4413,4 +4438,8 @@ html[data-theme="dark"] .founder-card {
   .footer-bottom {
     margin-top: 1rem;
   }
+}
+
+[data-theme="dark"] .benefit-card p {
+  color:var(--text-color);
 }
