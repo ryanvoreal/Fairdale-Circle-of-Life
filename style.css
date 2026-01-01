@@ -1665,6 +1665,72 @@ html[data-theme="dark"] .project-progress::-webkit-progress-bar {
   }
 }
 
+@media (max-width: 360px) {
+  .project-slider-wrapper {
+    padding: 0 5px;
+  }
+  
+  .slide .project-card {
+    padding: 8px;
+  }
+  
+  .project-body.modern {
+    padding: 0.5rem 0.4rem;
+  }
+  
+  .project-header {
+    padding: 0.4rem 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .project-title {
+    font-size: 0.9rem;
+  }
+  
+  .project-subtitle {
+    font-size: 0.75rem;
+  }
+  
+  .project-description,
+  .project-collecting,
+  .project-impact {
+    font-size: 0.8rem;
+  }
+  
+  .timeline {
+    padding-left: 0.5rem;
+    gap: 0.5rem;
+  }
+  
+  .step-content h5 {
+    font-size: 0.8rem;
+  }
+  
+  .step-content p {
+    font-size: 0.7rem;
+  }
+  
+  .slide-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 1.1rem;
+  }
+  
+  .projects.container {
+    padding: 0.75rem;
+  }
+  
+  .impact-stats-row {
+    gap: 0.5rem;
+    margin: 0.75rem 0 1rem;
+  }
+  
+  .impact-stat {
+    padding: 0.75rem 0.5rem;
+    min-width: 80px;
+  }
+}
+
 .project-activity{
   color:#1976d2;
   font-weight:700;
