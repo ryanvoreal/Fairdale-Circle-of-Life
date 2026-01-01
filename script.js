@@ -133,7 +133,7 @@ if (volunteerForm) {
   });
 }
 
-
+// ========= PROJECT SLIDER FUNCTIONALITY =========
 
 document.querySelectorAll('.project-slider-wrapper').forEach(wrapper => {
   const slider = wrapper.querySelector('.project-slider');
