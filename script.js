@@ -149,15 +149,28 @@ sliders.forEach(wrapper => {
   slider.insertBefore(lastClone, slides[0]);
 
   const allSlides = slider.querySelectorAll(".slide, .slide-projpage");
-  let currentIndex = 1; // start at real first slide
+  let currentIndex = 1; // start at real first slide (after the prepended clone)
   let isAnimating = false; // flag to prevent clicks during animation
 
-  slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+  // Helper to compute pixel offset based on wrapper width
+  function getSlideOffset(index) {
+    const slideWidth = wrapper.clientWidth;
+    return index * slideWidth;
+  }
 
+  // Position slider at the correct offset (in px). Use no animation when jumping.
   function updateSlider(animate = true) {
     slider.style.transition = animate ? 'transform 0.45s ease-in-out' : 'none';
-    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+    const offset = getSlideOffset(currentIndex);
+    slider.style.transform = `translateX(-${offset}px)`;
   }
+
+  // Initialize position after clones have been added
+  // Defer initial positioning to allow layout to settle
+  window.requestAnimationFrame(() => updateSlider(false));
+
+  // Recalculate on resize so pixel offsets stay correct
+  window.addEventListener('resize', () => updateSlider(false));
 
   nextBtn?.addEventListener("click", () => {
     if (isAnimating) return; // Prevent clicking during animation
@@ -166,7 +179,8 @@ sliders.forEach(wrapper => {
     updateSlider();
 
     slider.addEventListener('transitionend', () => {
-      if (currentIndex === allSlides.length - 1) {
+      const slidesNow = slider.querySelectorAll('.slide, .slide-projpage');
+      if (currentIndex === slidesNow.length - 1) {
         currentIndex = 1;
         updateSlider(false); // jump without animation
       }
@@ -181,8 +195,9 @@ sliders.forEach(wrapper => {
     updateSlider();
 
     slider.addEventListener('transitionend', () => {
+      const slidesNow = slider.querySelectorAll('.slide, .slide-projpage');
       if (currentIndex === 0) {
-        currentIndex = allSlides.length - 2;
+        currentIndex = slidesNow.length - 2;
         updateSlider(false); // jump without animation
       }
       isAnimating = false; // Re-enable clicks after animation

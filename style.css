@@ -227,9 +227,7 @@ html[data-theme="dark"] .site-tagline {
 
 
 
-.nav-toggle{
-  display:none
-}
+
 
 
 /* ========= DARK MODE THEME SWITCH ========= */
@@ -405,6 +403,7 @@ html[data-theme="dark"] .slider {
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     transition: all 0.25s ease;
     flex-direction: row;
+    margin-left: auto;
    
   }
 
@@ -1583,22 +1582,26 @@ html[data-theme="dark"] .project-activity {
 /* Slider Track */
 .project-slider {
   display: flex;
-  width: 100%;
+  /* allow the track to grow to contain all slides (prevents clipping when slides overflow) */
+  width: auto;
   transition: transform 0.45s ease-in-out;
   align-items: center;
+  will-change: transform;
 }
 
-/* Each Slide */
+/* Each Slide: use a fixed flex-basis so each slide equals the wrapper width.
+   This prevents percentage-based recursion where slide width becomes relative
+   to the sliding track instead of the visible wrapper. */
 .slide,
 .slide-projpage {
-  min-width: 100%;
-  width: 100%;
-  flex-shrink: 0;
+  flex: 0 0 100%; /* fixed basis equal to wrapper width */
+  max-width: 100%;
   box-sizing: border-box;
   padding: 0; /* remove gaps */
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0;
 }
 
 /* Slide with project card */
@@ -4091,15 +4094,10 @@ html[data-theme="dark"] .about-content h2 {
   color: var(--soft-gold);
 }
 
-html[data-theme="dark"] .about-item {
-  background: linear-gradient(180deg, #141414 0%, #0f0f0f 100%);
-  color: #eaf0f2;
-  box-shadow: 0 8px 28px rgba(0,0,0,0.6);
-  border-left: 6px solid rgba(245,215,110,0.18);
-}
+
 
 html[data-theme="dark"] .founders-section {
-  background: #2a2a2a;
+  background: #1f1f1f;
   color: #eaf0f2;
 }
 
@@ -4442,4 +4440,33 @@ html[data-theme="dark"] .founder-card {
 
 [data-theme="dark"] .benefit-card p {
   color:var(--text-color);
+}
+
+.Email {
+  color:var(--deep-blue);
+  transition: font-size 0.2s ease;
+}
+
+.Email:hover {
+  font-size: 1.05em;
+}
+
+[data-theme="dark"] .Email {
+  color:var(--soft-gold);
+}
+
+[data-theme="dark"] #founders-heading {
+  color:var(--soft-gold);
+}
+[data-theme="dark"] .about-item {
+  background: rgba(42,58,74,0.95);
+  color:var(--text-color);
+
+}
+
+[data-theme="dark"] .about-item:hover {
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+html[data-theme="dark"] .about-item h3 {
+  color: var(--soft-gold);
 }
