@@ -2588,7 +2588,7 @@ html[data-theme="dark"] .footer-bottom p {
     height: auto !important;
   }
   .hero-title {
-    font-size: 4rem !important;
+    font-size: clamp(2rem, 8vw, 4rem) !important;
     margin-bottom: 0.8rem !important;
   }
   .hero-lead {
@@ -2744,7 +2744,6 @@ html[data-theme="dark"] .footer-bottom p {
     .projects-grid {
       grid-template-columns: 1fr !important;
       gap: 1rem !important;
-      font-size: xx-large;
     }
     .project-card {
       padding: 1.5rem 1.2rem !important;
@@ -2752,8 +2751,10 @@ html[data-theme="dark"] .footer-bottom p {
 
     }
     .project-body.modern{
-      margin-top: 1rem !important;
-      width:fit-content !important;
+      width: 100% !important; /* take full width of the slide */
+  max-width: 100%; /* ensure it doesn’t overflow */
+  margin-top: 1rem !important;
+
     }
 }
 
