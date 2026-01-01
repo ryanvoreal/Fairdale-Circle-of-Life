@@ -128,80 +128,36 @@ if (volunteerForm) {
   volunteerForm.addEventListener('submit', function(e) {
     // FormSubmit will handle the email sending
     // Show a success message to the user
-    //This if for the get-involved page that I’m currently working on
+    //This if for the get-involved page that I'm currently working on
     console.log('Volunteer form submitted successfully');
   });
 }
 
-const sliders = document.querySelectorAll(".project-slider-wrapper");
 
-sliders.forEach(wrapper => {
-  const slider = wrapper.querySelector(".project-slider");
-  const slides = slider.querySelectorAll(".slide, .slide-projpage");
-  const prevBtn = wrapper.querySelector(".prev");
-  const nextBtn = wrapper.querySelector(".next");
 
-  // Clone first and last slides for infinite effect
-  const firstClone = slides[0].cloneNode(true);
-  const lastClone = slides[slides.length - 1].cloneNode(true);
+document.querySelectorAll('.project-slider-wrapper').forEach(wrapper => {
+  const slider = wrapper.querySelector('.project-slider');
+  const slides = slider.querySelectorAll('.slide, .slide-projpage');
+  const prevBtn = wrapper.querySelector('.prev');
+  const nextBtn = wrapper.querySelector('.next');
 
-  slider.appendChild(firstClone);
-  slider.insertBefore(lastClone, slides[0]);
+  let currentIndex = 0;
 
-  const allSlides = slider.querySelectorAll(".slide, .slide-projpage");
-  let currentIndex = 1; // start at real first slide (after the prepended clone)
-  let isAnimating = false; // flag to prevent clicks during animation
-
-  // Helper to compute pixel offset based on wrapper width
-  function getSlideOffset(index) {
-    const slideWidth = wrapper.clientWidth;
-    return index * slideWidth;
+  function scrollToIndex(index) {
+    slides[index].scrollIntoView({
+      behavior: 'smooth',
+      inline: 'start'
+    });
   }
 
-  // Position slider at the correct offset (in px). Use no animation when jumping.
-  function updateSlider(animate = true) {
-    slider.style.transition = animate ? 'transform 0.45s ease-in-out' : 'none';
-    const offset = getSlideOffset(currentIndex);
-    slider.style.transform = `translateX(-${offset}px)`;
-  }
-
-  // Initialize position after clones have been added
-  // Defer initial positioning to allow layout to settle
-  window.requestAnimationFrame(() => updateSlider(false));
-
-  // Recalculate on resize so pixel offsets stay correct
-  window.addEventListener('resize', () => updateSlider(false));
-
-  nextBtn?.addEventListener("click", () => {
-    if (isAnimating) return; // Prevent clicking during animation
-    isAnimating = true;
-    currentIndex++;
-    updateSlider();
-
-    slider.addEventListener('transitionend', () => {
-      const slidesNow = slider.querySelectorAll('.slide, .slide-projpage');
-      if (currentIndex === slidesNow.length - 1) {
-        currentIndex = 1;
-        updateSlider(false); // jump without animation
-      }
-      isAnimating = false; // Re-enable clicks after animation
-    }, { once: true });
+  nextBtn?.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % slides.length;
+    scrollToIndex(currentIndex);
   });
 
-  prevBtn?.addEventListener("click", () => {
-    if (isAnimating) return; // Prevent clicking during animation
-    isAnimating = true;
-    currentIndex--;
-    updateSlider();
-
-    slider.addEventListener('transitionend', () => {
-      const slidesNow = slider.querySelectorAll('.slide, .slide-projpage');
-      if (currentIndex === 0) {
-        currentIndex = slidesNow.length - 2;
-        updateSlider(false); // jump without animation
-      }
-      isAnimating = false; // Re-enable clicks after animation
-    }, { once: true });
+  prevBtn?.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    scrollToIndex(currentIndex);
   });
 });
 

@@ -459,16 +459,15 @@ html[data-theme="dark"] .slider {
     max-height: 0;
     overflow-y: auto;
     opacity: 0;
-    transform: translateY(-5px);
     border-radius: 0 0 12px 12px;
     box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-   
+
     /* FROSTED GLASS */
     background: rgba(42, 77, 105, 0.3); /* must be semi-transparent */
     backdrop-filter: blur(12px) saturate(150%);
     -webkit-backdrop-filter: blur(12px) saturate(150%);
-   
-    transition: all 0.3s ease;
+
+    transition: opacity 0.3s ease, max-height 0.3s ease;
     z-index: 10000;
   }
   .site-nav.open ul {
@@ -508,7 +507,7 @@ html[data-theme="dark"] .slider {
   }
   .hero {
     padding: 6rem 0 0;
-    background-position: center top;
+    background-position: center;
 
 
   }
@@ -1587,7 +1586,77 @@ html[data-theme="dark"] .project-progress::-webkit-progress-bar {
   }
 
   .step-content p {
-  font-size: 0.85rem;
+    font-size: 0.85rem;
+  }
+
+  .slide .project-card {
+    padding: 10px;
+    overflow-x: hidden;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Mobile-first responsive design for project cards */
+  @media (max-width: 480px) {
+    .project-slider-wrapper {
+      padding: 0 10px;
+    }
+    
+    .slide .project-card {
+      padding: 15px;
+      margin: 0;
+      border-radius: 12px;
+    }
+    
+    .project-body.modern {
+      padding: 1.5rem 1rem;
+    }
+    
+    .project-header {
+      padding: 0.8rem 1rem;
+      margin-bottom: 1rem;
+    }
+    
+    .project-title {
+      font-size: 1.2rem;
+    }
+    
+    .project-subtitle {
+      font-size: 0.9rem;
+    }
+    
+    .project-description,
+    .project-collecting,
+    .project-impact {
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    
+    .timeline {
+      padding-left: 1rem;
+      gap: 1rem;
+    }
+    
+    .step-content h5 {
+      font-size: 0.95rem;
+    }
+    
+    .step-content p {
+      font-size: 0.85rem;
+    }
+    
+    .project-progress-container {
+      margin-top: 0.5rem;
+    }
+    
+    .project-progress {
+      height: 12px;
+    }
+    
+    .btn {
+      padding: 0.6rem 1rem;
+      font-size: 0.9rem;
+    }
   }
 }
 
@@ -1602,39 +1671,53 @@ html[data-theme="dark"] .project-activity {
 
 .project-slider-wrapper {
   position: relative;
-  width: 100%;
   overflow: hidden;
-  border-radius: 16px;
-  margin: 0 auto;
-  min-height:500px;
-  display: flex;
-  align-items: center;
-  max-width: 100%;
 }
 
-/* Slider Track */
 .project-slider {
   display: flex;
-  /* allow the track to grow to contain all slides (prevents clipping when slides overflow) */
-  width: auto;
-  transition: transform 0.45s ease-in-out;
-  align-items: center;
-  will-change: transform;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* for smooth scrolling on iOS */
 }
+
+.project-slider::-webkit-scrollbar {
+  display: none;
+}
+
 
 /* Each Slide: use a fixed flex-basis so each slide equals the wrapper width.
    This prevents percentage-based recursion where slide width becomes relative
    to the sliding track instead of the visible wrapper. */
 .slide,
 .slide-projpage {
-  flex: 0 0 100%; /* fixed basis equal to wrapper width */
-  max-width: 100%;
-  box-sizing: border-box;
-  padding: 0; /* remove gaps */
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+}
+
+.slide-projpage{
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin: 0;
+  justify-content: center;
+}
+
+/* Ensure all slide types have consistent sizing on mobile */
+@media (max-width: 480px) {
+  .slide,
+  .slide-projpage {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex-basis: 100% !important;
+  }
+  
+  .slide-projpage img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+  }
 }
 
 /* Slide with project card */
@@ -1655,10 +1738,10 @@ html[data-theme="dark"] .slide .project-card {
 /* Image slide */
 .slide-projpage img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  max-height: 70vh;      /* prevents giant images */
+  object-fit: contain;  /* no cropping */
   display: block;
-  object-fit: contain;
-  border-radius: 16px;
 }
 
 /* ============================
@@ -1695,6 +1778,7 @@ html[data-theme="dark"] .slide .project-card {
 .slide-btn.next {
   right: 10px;
 }
+
 
 /* FAQ Section */
 .faq {
@@ -2410,14 +2494,13 @@ html[data-theme="dark"] .footer-bottom p {
     padding: 6rem 1rem 3rem !important;
   }
   .hero-title {
-    font-size: 2rem !important;
+    font-size: 4rem !important;
   }
   .hero-lead {
-    font-size: 1rem !important;
+    font-size: 1.2rem !important;
   }
   .hero-cta {
-    flex-direction: column !important;
-    width: 100%;
+    display:none !important;
   }
   .btn {
     width: 100% !important;
@@ -2501,20 +2584,19 @@ html[data-theme="dark"] .footer-bottom p {
     font-size: 0.9rem !important;
   }
   .hero {
-    padding: 5rem 0.75rem 2.5rem !important;
-    min-height: 50vh !important;
+    padding: 4rem 0.75rem 1rem !important;
+    height: auto !important;
   }
   .hero-title {
-    font-size: 1.5rem !important;
+    font-size: 4rem !important;
     margin-bottom: 0.8rem !important;
   }
   .hero-lead {
-    font-size: 0.9rem !important;
+    font-size: 1.2rem !important;
     margin-bottom: 1rem !important;
   }
   .hero-cta {
-    gap: 0.5rem !important;
-    margin-top: 1rem !important;
+    display:none !important;
   }
   .btn {
     padding: 0.65rem 1.2rem !important;
@@ -2652,6 +2734,27 @@ html[data-theme="dark"] .footer-bottom p {
   .footer-bottom p {
     font-size: 0.85rem !important;
   }
+  .project-highlights {
+    padding: 2rem 0.75rem !important;
+  }
+  .project-highlights h2 {
+    font-size: 1.3rem !important;
+    margin-bottom: 1.2rem !important; 
+  }
+    .projects-grid {
+      grid-template-columns: 1fr !important;
+      gap: 1rem !important;
+      font-size: xx-large;
+    }
+    .project-card {
+      padding: 1.5rem 1.2rem !important;
+      border-radius: 12px !important;
+
+    }
+    .project-body.modern{
+      margin-top: 1rem !important;
+      width:fit-content !important;
+    }
 }
 
 
@@ -3740,9 +3843,10 @@ html[data-theme="dark"] .project-results-list li {
 
 
 .project-card.results .project-body.modern {
-  font-size: 1.05rem;
-  line-height: 1.7;
+  overflow-y: auto;
+  padding-right: 0.5rem;
 }
+
 
 html[data-theme="dark"] .project-card.results .project-body.modern {
   background: rgba(42,58,74,0.95);
