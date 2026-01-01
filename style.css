@@ -507,10 +507,10 @@ html[data-theme="dark"] .slider {
     box-shadow: none;
   }
   .hero {
-    padding-top:6rem;
+    padding-top: 6rem 0 0;
     background-position: center top;
-    font-size: 1rem;
-  max-height: 60vh;
+    font-size: 1.5rem;
+
   }
   .hero-inner {
     flex-direction: column;
