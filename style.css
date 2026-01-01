@@ -507,7 +507,7 @@ html[data-theme="dark"] .slider {
     box-shadow: none;
   }
   .hero {
-    padding-top: 6rem 0 0;
+    padding: 6rem 0 0;
     background-position: center top;
     font-size: 1.5rem;
 
