@@ -2756,6 +2756,10 @@ html[data-theme="dark"] .footer-bottom p {
   margin-top: 1rem !important;
 
     }
+    .slide-projpage {
+  flex: 0 0 100%; /* each slide takes full width */
+  max-width: 100%;
+}
 }
 
 
