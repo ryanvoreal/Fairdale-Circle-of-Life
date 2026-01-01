@@ -459,6 +459,7 @@ html[data-theme="dark"] .slider {
     max-height: 0;
     overflow-y: auto;
     opacity: 0;
+    transform: translateY(-20px);
     border-radius: 0 0 12px 12px;
     box-shadow: 0 8px 30px rgba(0,0,0,0.1);
 
@@ -467,17 +468,19 @@ html[data-theme="dark"] .slider {
     backdrop-filter: blur(12px) saturate(150%);
     -webkit-backdrop-filter: blur(12px) saturate(150%);
 
-    transition: opacity 0.3s ease, max-height 0.3s ease;
+    transition: opacity 0.4s ease, max-height 0.4s ease, transform 0.4s ease;
     z-index: 10000;
   }
   .site-nav.open ul {
     display: flex;
-  flex-direction:row;
-  gap: 0.8rem;
-  background: rgba(42, 77, 105, 0.9); /* lighter for frosted effect */
-  backdrop-filter: blur(12px) saturate(120%);
-  -webkit-backdrop-filter: blur(12px) saturate(120%);
-  align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(42, 77, 105, 0.9); /* lighter for frosted effect */
+    backdrop-filter: blur(12px) saturate(120%);
+    -webkit-backdrop-filter: blur(12px) saturate(120%);
+    align-items: center;
+    border-radius: 12px;
   }
   .site-title {
     font-size:1rem;
@@ -2786,7 +2789,7 @@ html[data-theme="dark"] .footer-bottom p {
     padding: 0 0.5rem !important;
   }
   .site-title {
-    font-size: 0.9rem !important;
+    font-size: 0.2 !important;
   }
   .site-tagline {
     display: none !important;
@@ -2798,18 +2801,19 @@ html[data-theme="dark"] .footer-bottom p {
   .site-nav a {
     padding: 0.3rem 0.6rem !important;
     font-size: 0.85rem !important;
+    margin-top:0 !important;
   }
   .hero {
     padding: 4.5rem 0.5rem 2rem !important;
   }
   .hero-title {
-    font-size: 1.3rem !important;
+    font-size: 4rem !important;
   }
   .hero-lead {
-    font-size: 0.85rem !important;
+    font-size: 1.2rem !important;
   }
   .hero-note {
-    font-size: 0.8rem !important;
+    font-size: 1rem !important;
   }
   .btn {
     padding: 0.6rem 1rem !important;
@@ -4449,10 +4453,12 @@ html[data-theme="dark"] .founder-card {
     padding: 0.5rem 1rem;
     border-radius: 6px;
     display: inline-block;
+    transition: background 0.3s ease, transform 0.3s ease;
   }
 
   .site-nav a:hover {
     background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.02);
   }
 
   /* Center the nav on mobile */
