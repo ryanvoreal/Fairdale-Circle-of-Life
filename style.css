@@ -510,6 +510,7 @@ html[data-theme="dark"] .slider {
     padding: 6rem 0 0;
     background-position: center top;
 
+
   }
   .hero-inner {
     flex-direction: column;
@@ -519,10 +520,10 @@ html[data-theme="dark"] .slider {
     padding: 0 1rem;
   }
   .hero-content p{
-    font-size:2rem;
+    font-size:1.2rem;
   }
   .hero-title {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
   .btn {
     padding: 0.6rem 1.2rem;
@@ -4388,6 +4389,7 @@ html[data-theme="dark"] .founder-card {
   /* Hero section */
   .hero {
     padding: 5rem 0;
+    padding-bottom: 1.5rem;
   }
 
   .hero-title {
