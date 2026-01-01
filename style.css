@@ -1665,7 +1665,7 @@ html[data-theme="dark"] .project-progress::-webkit-progress-bar {
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 420px) {
   .project-slider-wrapper {
     padding: 0 5px;
   }
