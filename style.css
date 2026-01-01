@@ -509,7 +509,6 @@ html[data-theme="dark"] .slider {
   .hero {
     padding: 6rem 0 0;
     background-position: center top;
-    font-size: 1.5rem;
 
   }
   .hero-inner {
@@ -520,10 +519,10 @@ html[data-theme="dark"] .slider {
     padding: 0 1rem;
   }
   .hero-content p{
-    font-size:1rem;
+    font-size:2rem;
   }
   .hero-title {
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
   .btn {
     padding: 0.6rem 1.2rem;
