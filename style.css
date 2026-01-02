@@ -1598,6 +1598,7 @@ html[data-theme="dark"] .project-progress::-webkit-progress-bar {
     width: 100%;
     box-sizing: border-box;
   }
+  
 
   /* Mobile-first responsive design for project cards */
   @media (max-width: 480px) {
