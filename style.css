@@ -62,13 +62,20 @@ img, picture, video {
   padding: 0 1rem;
 }
 
+iframe{
+  width: 100%;
+  height: 600px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
 
 .site-header { /* sticky header */
   position: fixed;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 50%;
+  width: 60%;
   z-index: 1000;
   padding: 0.3rem 0;
   background: rgba(42, 77, 105, 0.55); /* thin glass */
@@ -91,7 +98,7 @@ img, picture, video {
 
 @media (max-width: 1310px) {
   .site-header {
-    width: 60%;
+    width: 80%;
   }
   .site-nav ul {
     padding: 0.5rem;
@@ -100,7 +107,7 @@ img, picture, video {
 
 @media (max-width: 1024px) {
   .site-header {
-    width: 75%;
+    width: 80%;
   }
   .site-nav ul {
     padding: 0.4rem;
@@ -3429,7 +3436,7 @@ html[data-theme="dark"] .cta-content p {
   box-shadow: 0 20px 60px rgba(42,77,105,0.12), 
               0 8px 24px rgba(75,134,180,0.08),
               inset 0 1px 0 rgba(255,255,255,0.4);
-  max-width: 900px;
+  max-width: 1200px;
   position: relative;
   overflow: hidden;
 }
@@ -3500,17 +3507,15 @@ html[data-theme="dark"] .fundraiser h2 {
 
 .fundraiser-content {
   margin-top: 2rem;
+  min-height: 850px; /* Ensure parent can accommodate iframe height */
 }
 
 .fundraiser-embed {
   background: white;
-  padding: 2.5rem;
+  padding: 0;
   border-radius: 16px;
   box-shadow: 0 8px 25px rgba(42,77,105,0.1);
-  min-height: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
 }
 
 html[data-theme="dark"] .fundraiser-embed {
@@ -3520,7 +3525,8 @@ html[data-theme="dark"] .fundraiser-embed {
 
 .fundraiser-embed iframe {
   width: 100%;
-  min-height: 600px;
+  height: 80vh;
+  min-height: 800px;
   border: none;
   border-radius: 12px;
 }
@@ -3548,12 +3554,16 @@ html[data-theme="dark"] .fundraiser-placeholder {
   .fundraiser h2 {
     font-size: 1.6rem;
   }
+  .fundraiser-content {
+    min-height: 650px; /* Ensure parent can accommodate iframe height on mobile */
+  }
   .fundraiser-embed {
     padding: 1.5rem;
-    min-height: 300px;
+    min-height: 600px; /* Increase to match iframe min-height on mobile */
   }
   .fundraiser-embed iframe {
-    min-height: 400px;
+    height: 80vh;
+    min-height: 600px;
   }
   .fundraiser-placeholder {
     font-size: 1rem;
@@ -4690,4 +4700,215 @@ html[data-theme="dark"] .founder-card {
 }
 html[data-theme="dark"] .about-item h3 {
   color: var(--soft-gold);
+}
+
+/* ======== NEW IMAGE STYLES ======== */
+
+/* Hero section images */
+.hero-image {
+  flex: 0 0 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.9;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+.hero-image:hover {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+/* Mission section images */
+.mission-image {
+  flex: 0 0 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.95;
+}
+.mission-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+.mission-image:hover img {
+  transform: scale(1.02);
+}
+
+/* Card images in efforts section */
+.card-image {
+  width: 100%;
+  height: 160px;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.card:hover .card-image img {
+  transform: scale(1.05);
+}
+
+/* Projects page hero image */
+.projects-hero-image {
+  width: 100%;
+  height: 200px;
+  margin-bottom: 2rem;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.projects-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.projects-hero-image:hover img {
+  transform: scale(1.02);
+}
+
+/* Get Involved benefits section image */
+.benefits-hero-image {
+  width: 100%;
+  height: 200px;
+  margin-bottom: 2rem;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.benefits-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.benefits-hero-image:hover img {
+  transform: scale(1.02);
+}
+
+/* Contact page hero image */
+.contact-hero-image {
+  width: 100%;
+  height: 200px;
+  margin-bottom: 2rem;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.contact-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.contact-hero-image:hover img {
+  transform: scale(1.02);
+}
+
+/* About page image styles */
+.about-image {
+  width: 100%;
+  height: 200px;
+  margin-top: 2rem;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.about-image:hover img {
+  transform: scale(1.02);
+}
+
+/* Founder card image styles (existing styles enhanced) */
+.founder-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0;
+  border: 3px solid var(--soft-gold);
+  box-shadow: 0 2px 8px rgba(11,24,35,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex-shrink: 0;
+}
+.founder-card:hover .founder-image {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(11,24,35,0.2);
+}
+
+/* Responsive image adjustments */
+@media (max-width: 780px) {
+  .hero-image {
+    flex: 0 0 150px;
+  }
+  .mission-image {
+    flex: 0 0 250px;
+  }
+  .card-image {
+    height: 140px;
+  }
+  .projects-hero-image,
+  .benefits-hero-image,
+  .contact-hero-image,
+  .about-image {
+    height: 160px;
+  }
+  .founder-image {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-image {
+    flex: 0 0 120px;
+  }
+  .mission-image {
+    flex: 0 0 200px;
+  }
+  .card-image {
+    height: 120px;
+  }
+  .projects-hero-image,
+  .benefits-hero-image,
+  .contact-hero-image,
+  .about-image {
+    height: 140px;
+  }
+  .founder-image {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/* Dark mode image adjustments */
+html[data-theme="dark"] .hero-image img,
+html[data-theme="dark"] .mission-image img,
+html[data-theme="dark"] .card-image img,
+html[data-theme="dark"] .projects-hero-image img,
+html[data-theme="dark"] .benefits-hero-image img,
+html[data-theme="dark"] .contact-hero-image img,
+html[data-theme="dark"] .about-image img {
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
