@@ -4824,7 +4824,7 @@ html[data-theme="dark"] .about-item h3 {
 /* About page image styles */
 .about-image {
   width: 100%;
-  height: 200px;
+  height: 250px;
   margin-top: 2rem;
   border-radius: 12px;
   overflow: hidden;
