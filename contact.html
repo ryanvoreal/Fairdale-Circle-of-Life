@@ -4,6 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Fairdale Circle of Care | Contact Us</title>
+    <script>
+      (function() {
+        var theme = localStorage.getItem('theme');
+        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var isDark = theme === 'dark' || (!theme && prefersDark);
+        document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+      })();
+    </script>
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/x-icon" href="images/Fairdale_High_logo_template_300.png">
 </head>
@@ -19,33 +27,29 @@
                 <p class="site-tagline">Building compassion through action — helping our local homeless community, one step at a time.</p>
             </div>
 
-            <button class="nav-toggle" aria-label="Toggle navigation">></button>
-            <label class="theme-switch">
-          <input type="checkbox" id="theme-toggle" class="theme-checkbox" />
-          <span class="slider">
-            <div class="star star_1"></div>
-            <div class="star star_2"></div>
-            <div class="star star_3"></div>
-            <svg viewBox="0 0 16 16" class="cloud_1 cloud">
-              <path
-                transform="matrix(.77976 0 0 .78395-299.99-418.63)"
-                fill="#fff"
-                d="m391.84 540.91c-.421-.329-.949-.524-1.523-.524-1.351 0-2.451 1.084-2.485 2.435-1.395.526-2.388 1.88-2.388 3.466 0 1.874 1.385 3.423 3.182 3.667v.034h12.73v-.006c1.775-.104 3.182-1.584 3.182-3.395 0-1.747-1.309-3.186-2.994-3.379.007-.106.011-.214.011-.322 0-2.707-2.271-4.901-5.072-4.901-2.073 0-3.856 1.202-4.643 2.925"
-              ></path>
-            </svg>
-          </span>
-        </label>
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
             <nav class="site-nav" role="navigation" aria-label="Main navigation">
                 <ul>
                     <li><a href="about.html">About</a></li>
-                    <li><a  href="projects.html">Projects</a></li>
-                    <li><a  href="get-involved.html">Get Involved</a></li>
-                    <li><a  href="contact.html">Contact</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="get-involved.html">Get Involved</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
+            <label class="theme-switch" aria-label="Toggle dark mode">
+                <input type="checkbox" id="theme-toggle" class="theme-checkbox" />
+                <span class="theme-icon theme-icon-sun" aria-hidden="true">☀</span>
+                <span class="slider"></span>
+                <span class="theme-icon theme-icon-moon" aria-hidden="true">☽</span>
+            </label>
+            <script>(function(){ var t = document.documentElement.getAttribute('data-theme'); var c = document.getElementById('theme-toggle'); if(c) c.checked = (t === 'dark'); })();</script>
         </div>
     </header>
-    <main id="main" class="hero" role="main">
+    <main id="main" class="hero hero-inner-page" role="main">
         <div class="container hero-inner">
             <div class="hero-content reveal">
                 <h2 class="hero-title">Contact Us</h2>
@@ -58,7 +62,7 @@
     </main>
   <!-- Contact section -->
         <section class="contact-form container" aria-label="Contact">
-            <div class="contact-hero-image">
+            <div class="contact-hero-image reveal">
                 <img src="images/IMG_8296 2.JPG" alt="Students holding donated items for community service" />
             </div>
             <div class="contact-header">
@@ -67,8 +71,8 @@
             </div>
 
 
-            <div class="contact-grid">
-                <div class="form-column">
+            <div class="contact-grid" data-stagger>
+                <div class="form-column reveal">
                     <div class="form-wrapper">
                         <!-- Google Form iframe inserted  -->
                         <!-- Replace the src value with your Google Form's embed URL. -->
@@ -77,7 +81,7 @@
                 </div>
 
 
-                <aside class="info-column">
+                <aside class="info-column reveal">
                     <div class="info-card">
                         <h3 class="info-title">Contact Information</h3>
                         <ul class="info-list">

@@ -4,6 +4,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Fairdale Circle of Care | Projects</title>
+  <script>
+    (function() {
+      var theme = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var isDark = theme === 'dark' || (!theme && prefersDark);
+      document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+    })();
+  </script>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/x-icon" href="images/Fairdale_High_logo_template_300.png">
 </head>
@@ -17,22 +25,11 @@
         </a>
         <p class="site-tagline">Building compassion through action — helping our local homeless community, one step at a time.</p>
       </div>
-      <button class="nav-toggle" aria-label="Toggle navigation">></button>
-      <label class="theme-switch">
-          <input type="checkbox" id="theme-toggle" class="theme-checkbox" />
-          <span class="slider">
-            <div class="star star_1"></div>
-            <div class="star star_2"></div>
-            <div class="star star_3"></div>
-            <svg viewBox="0 0 16 16" class="cloud_1 cloud">
-              <path
-                transform="matrix(.77976 0 0 .78395-299.99-418.63)"
-                fill="#fff"
-                d="m391.84 540.91c-.421-.329-.949-.524-1.523-.524-1.351 0-2.451 1.084-2.485 2.435-1.395.526-2.388 1.88-2.388 3.466 0 1.874 1.385 3.423 3.182 3.667v.034h12.73v-.006c1.775-.104 3.182-1.584 3.182-3.395 0-1.747-1.309-3.186-2.994-3.379.007-.106.011-.214.011-.322 0-2.707-2.271-4.901-5.072-4.901-2.073 0-3.856 1.202-4.643 2.925"
-              ></path>
-            </svg>
-          </span>
-        </label>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
       <nav class="site-nav" role="navigation" aria-label="Main navigation">
         <ul>
           <li><a href="about.html">About</a></li>
@@ -41,10 +38,17 @@
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
+      <label class="theme-switch" aria-label="Toggle dark mode">
+        <input type="checkbox" id="theme-toggle" class="theme-checkbox" />
+        <span class="theme-icon theme-icon-sun" aria-hidden="true">☀</span>
+        <span class="slider"></span>
+        <span class="theme-icon theme-icon-moon" aria-hidden="true">☽</span>
+      </label>
+      <script>(function(){ var t = document.documentElement.getAttribute('data-theme'); var c = document.getElementById('theme-toggle'); if(c) c.checked = (t === 'dark'); })();</script>
     </div>
   </header>
 
-  <main id="main" class="hero" role="main">
+  <main id="main" class="hero hero-inner-page" role="main">
     <div class="container hero-inner">
       <div class="hero-content reveal">
         <h2 class="hero-title">Building Projects That Create Change</h2>
@@ -60,170 +64,111 @@
 
   <section class="projects container" aria-label="Current projects">
 
-  <div class="projects-grid">
+  <div class="projects-grid" data-stagger>
 
-    <!-- Project 1 -->
-    <div class="project-card-wrapper">
-      <div class="project-slider-wrapper">
-        <button class="slide-btn prev" aria-label="Previous slide">&#10094;</button>
-
-        <div class="project-slider">
-          <!-- Project Card -->
-          <div class="slide active">
-            <article class="project-card">
-              <div class="project-body modern">
-                <div class="project-header">
-                  <span class="project-badge">Last Project</span>
-                  <h4 class="project-title">Food Drive for the Homeless</h4>
-                  <p class="project-subtitle"><span class="project-activity complete">Complete</span> • Nov 25 – Dec 12</p>
-                </div>
-
-                <p class="project-description">
-                 We are hosting a school-wide food drive to support members of our homeless community.
-                Each Crew is assigned a food category to collect and is encouraged to promote the drive
-                through posters, social outreach, and community engagement.
-
-                </p>
-                <p class="project-collecting"><strong>We're Collecting:</strong> Non-perishable foods such as canned goods, dry rice, pasta, peanut butter, and boxed meals.</p>
-
-                <h4>Timeline</h4>
-                <div class="timeline">
-                  <div class="step">
-                    <div class="step-marker"></div>
-                    <div class="step-content">
-                      <h5>Nov 25 — Crew Planning Day</h5>
-                      <p>Crews create their plan for collecting their assigned food items.</p>
-                    </div>
-                  </div>
-                  <div class="step">
-                    <div class="step-marker"></div>
-                    <div class="step-content">
-                      <h5>Dec 1 — Collection Begins</h5>
-                      <p>Students begin bringing in items; Crew Leaders collect donations daily.</p>
-                    </div>
-                  </div>
-                  <div class="step">
-                    <div class="step-marker"></div>
-                    <div class="step-content">
-                      <h5>Dec 2–3 — Poster Competition</h5>
-                      <p>Crews design posters to advertise the drive on campus and social media.</p>
-                    </div>
-                  </div>
-                  <div class="step">
-                    <div class="step-marker"></div>
-                    <div class="step-content">
-                      <h5>Dec 12 — Final Collection Day</h5>
-                      <p>STLP students gather all items and deliver them to the Youth Service Center.</p>
-                    </div>
-                  </div>
-                </div>
-
-                <p class="project-impact"><strong>Impact Goal:</strong> Provide meals for families in need while building student leadership.</p>
-                <div class="project-progress-container">
-                  <span class="progress-label">Progress: 100%</span>
-                  <progress class="project-progress complete" value="100" max="100"></progress>
-                </div>
-              </div>
-            </article>
-          </div>
-
-          <!-- Project Images -->
-           <div class="slide-projpage">
-            <article class="project-card results">
-              <div class="project-body modern">
-                <div class="project-header">
-                  <span class="project-badge">Project Results</span>
-                  <h4 class="project-title">Food Drive for the Homeless</h4>
-                  <p class="project-subtitle">
-                    <span class="project-activity complete">Complete</span> • Final Impact
-                  </p>
-                </div>
-          
-                <p class="project-description">
-                  Thanks to our students, staff, and community partners, the food drive
-                  exceeded its goals and directly supported local families in need.
-                </p>
-          
-                <h4>What We Achieved</h4>
-                <ul class="project-results-list">
-                  <li><strong>560+</strong> non‑perishable items collected</li>
-                  <ul>
-                    <li><strong>270+</strong> Canned Goods (Beans, Tomatoes, etc.)</li>
-                    <li><strong>120+</strong> Rice/Grains (Rice, Grains, etc.)</li>
-                    <li><strong>90+</strong> Shelf Stable Protein (PB, Jelly, etc.)</li>
-                    <li><strong>60+</strong> Cereal (Froot Loops, Lucky Charms, etc.)</li>
-                  </ul>
-                  <li><strong>40+</strong> families supported</li>
-                  <li><strong>60+</strong> classes participated</li>
-                </ul>
-          
-                <p class="project-impact">
-                  <strong>Lasting Impact:</strong> Students practiced leadership, empathy,
-                  and community organizing while addressing food insecurity.
-                </p>
-                <div class="impact-stats-row">
-                  <div class="impact-stat"><strong>560+</strong><span>Items</span></div>
-                  <div class="impact-stat"><strong>43</strong><span>Families</span></div>
-                  <div class="impact-stat"><strong>60+</strong><span>Classes</span></div>
-                </div>
-              </div>
-            </article>
-           </div>
-          <div class="slide-projpage">
-            <img alt = "Image of two students holding up donated items."src="images/IMG_8258.jpg" />
-          </div>
-          <div class="slide-projpage">
-            <img alt="Fundraiser guidelines and what students brought in for the food drive" src="images/circle of care.png" />
-          </div>
-          <div class="slide-projpage">
-            <img alt="Image of various brands of cereal."src="images/IMG_8283.JPG" /> 
-          </div>
-          <div class="slide-projpage">
-            <img alt="Image of students next to donated boxes"src="images/IMG_8296 2.JPG" /> 
-          </div>
-          <div class="slide-projpage">
-            <img  alt="Image of custom donation boxes made by students." src="images/IMG_8292.JPG" />
-          </div>
-          <div class="slide-projpage">
-            <img  alt="Image of custom donation poster made by a student." src="images/cereal poster ex.png" />
-          </div>
-          <div class="slide-projpage">
-            <img  alt="Student using designing skills to create a poster." src="images/IMG_8384.JPG" />
-          </div>
-          <div class="slide-projpage">
-            <img  alt="Volunteering students helping with the project." src="images/IMG_8388.JPG" />
-          </div>
-
+    <!-- Project 1: Tabbed card -->
+    <div class="project-card-wrapper project-tabbed reveal">
+      <article class="project-card project-body modern project-tabbed-card">
+        <div class="project-tabbed-header">
+          <h3 class="project-name">Food Drive for the Homeless</h3>
+          <p class="project-meta"><span class="project-activity complete">Complete</span> • Nov 25 – Dec 12</p>
         </div>
-
-        <button class="slide-btn next" aria-label="Next slide">&#10095;</button>
-      </div>
+        <div class="project-tabs" role="tablist" aria-label="Project details">
+          <button type="button" class="project-tab active" role="tab" aria-selected="true" aria-controls="proj1-overview" id="proj1-tab-overview">Overview</button>
+          <button type="button" class="project-tab" role="tab" aria-selected="false" aria-controls="proj1-timeline" id="proj1-tab-timeline">Timeline</button>
+          <button type="button" class="project-tab" role="tab" aria-selected="false" aria-controls="proj1-results" id="proj1-tab-results">Results</button>
+          <button type="button" class="project-tab" role="tab" aria-selected="false" aria-controls="proj1-photos" id="proj1-tab-photos">Photos</button>
+        </div>
+        <div class="project-tab-panels">
+          <div id="proj1-overview" class="project-tab-panel active" role="tabpanel" aria-labelledby="proj1-tab-overview">
+            <p class="project-description">We hosted a school-wide food drive to support members of our homeless community. Each Crew was assigned a food category to collect and promoted the drive through posters, social outreach, and community engagement.</p>
+            <p class="project-collecting"><strong>We collected:</strong> Non-perishable foods such as canned goods, dry rice, pasta, peanut butter, and boxed meals.</p>
+            <p class="project-impact"><strong>Impact goal:</strong> Provide meals for families in need while building student leadership.</p>
+            <div class="project-progress-container">
+              <span class="progress-label">Progress: 100%</span>
+              <progress class="project-progress complete" value="100" max="100"></progress>
+            </div>
+          </div>
+          <div id="proj1-timeline" class="project-tab-panel" role="tabpanel" aria-labelledby="proj1-tab-timeline" hidden>
+            <div class="timeline">
+              <div class="step">
+                <div class="step-marker"></div>
+                <div class="step-content">
+                  <h5>Nov 25 — Crew Planning Day</h5>
+                  <p>Crews created their plan for collecting their assigned food items.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-marker"></div>
+                <div class="step-content">
+                  <h5>Dec 1 — Collection Begins</h5>
+                  <p>Students began bringing in items; Crew Leaders collected donations daily.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-marker"></div>
+                <div class="step-content">
+                  <h5>Dec 2–3 — Poster Competition</h5>
+                  <p>Crews designed posters to advertise the drive on campus and social media.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-marker"></div>
+                <div class="step-content">
+                  <h5>Dec 12 — Final Collection Day</h5>
+                  <p>STLP students gathered all items and delivered them to the Youth Service Center.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="proj1-results" class="project-tab-panel" role="tabpanel" aria-labelledby="proj1-tab-results" hidden>
+            <p class="project-description">Thanks to our students, staff, and community partners, the food drive exceeded its goals and directly supported local families in need.</p>
+            <h4>What We Achieved</h4>
+            <ul class="project-results-list">
+              <li><strong>560+</strong> non‑perishable items collected</li>
+              <ul>
+                <li><strong>270+</strong> Canned Goods (Beans, Tomatoes, etc.)</li>
+                <li><strong>120+</strong> Rice/Grains (Rice, Grains, etc.)</li>
+                <li><strong>90+</strong> Shelf Stable Protein (PB, Jelly, etc.)</li>
+                <li><strong>60+</strong> Cereal (Froot Loops, Lucky Charms, etc.)</li>
+              </ul>
+              <li><strong>40+</strong> families supported</li>
+              <li><strong>60+</strong> classes participated</li>
+            </ul>
+            <p class="project-impact"><strong>Lasting Impact:</strong> Students practiced leadership, empathy, and community organizing while addressing food insecurity.</p>
+            <div class="impact-stats-row">
+              <div class="impact-stat"><strong>560+</strong><span>Items</span></div>
+              <div class="impact-stat"><strong>40+</strong><span>Families</span></div>
+              <div class="impact-stat"><strong>60+</strong><span>Classes</span></div>
+            </div>
+          </div>
+          <div id="proj1-photos" class="project-tab-panel project-photos-panel" role="tabpanel" aria-labelledby="proj1-tab-photos" hidden>
+            <div class="project-photos-grid">
+              <img src="images/IMG_8258.jpg" alt="Two students holding up donated items" />
+              <img src="images/circle of care.png" alt="Fundraiser guidelines and what students brought in" />
+              <img src="images/IMG_8283.JPG" alt="Assorted cereal boxes collected" />
+              <img src="images/IMG_8296 2.JPG" alt="Students next to donated boxes" />
+              <img src="images/IMG_8292.JPG" alt="Custom donation boxes made by students" />
+              <img src="images/cereal poster ex.png" alt="Custom donation poster by a student" />
+              <img src="images/IMG_8384.JPG" alt="Student designing a poster" />
+              <img src="images/IMG_8388.JPG" alt="Volunteering students helping with the project" />
+            </div>
+          </div>
+        </div>
+      </article>
     </div>
 
     <!-- Project 2 -->
-    <div class="project-card-wrapper">
-      <div class="project-slider-wrapper">
-        <button class="slide-btn prev" aria-label="Previous slide">&#10094;</button>
-
-        <div class="project-slider">
-          <!-- Project Card -->
-          <div class="slide active">
-            <article class="project-card">
-              <div class="project-body modern">
-                <div class="project-header">
-                  <span class="project-badge">In Development</span>
-                  <h4 class="project-title">New Community Project</h4>
-                  <p class="project-subtitle">Coming Soon</p>
-                </div>
-
-                <p class="project-description">We are preparing a new project to expand our community initiatives</p>
-              </div>
-            </article>
+    <div class="project-card-wrapper reveal">
+      <article class="project-card">
+        <div class="project-body modern">
+          <div class="project-tabbed-header">
+            <h3 class="project-name">New Community Project</h3>
+            <p class="project-meta"><span class="project-activity">In Development</span> • Coming Soon</p>
           </div>
+          <p class="project-description">We are preparing a new project to expand our community initiatives.</p>
         </div>
-
-        <button class="slide-btn next" aria-label="Next slide">&#10095;</button>
-      </div>
+      </article>
     </div>
 
   </div>

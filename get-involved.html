@@ -4,6 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Fairdale Circle of Care | Get Involved</title>
+    <script>
+      (function() {
+        var theme = localStorage.getItem('theme');
+        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var isDark = theme === 'dark' || (!theme && prefersDark);
+        document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+      })();
+    </script>
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/x-icon" href="images/Fairdale_High_logo_template_300.png">
 </head>
@@ -17,33 +25,29 @@
                 </a>
                 <p class="site-tagline">Building compassion through action — helping our local homeless community, one step at a time.</p>
             </div>
-                        <button class="nav-toggle" aria-label="Toggle navigation">></button>
-                        <label class="theme-switch">
-                    <input type="checkbox" id="theme-toggle" class="theme-checkbox" />
-                    <span class="slider">
-                        <div class="star star_1"></div>
-                        <div class="star star_2"></div>
-                        <div class="star star_3"></div>
-                        <svg viewBox="0 0 16 16" class="cloud_1 cloud">
-                            <path
-                                transform="matrix(.77976 0 0 .78395-299.99-418.63)"
-                                fill="#fff"
-                                d="m391.84 540.91c-.421-.329-.949-.524-1.523-.524-1.351 0-2.451 1.084-2.485 2.435-1.395.526-2.388 1.88-2.388 3.466 0 1.874 1.385 3.423 3.182 3.667v.034h12.73v-.006c1.775-.104 3.182-1.584 3.182-3.395 0-1.747-1.309-3.186-2.994-3.379.007-.106.011-.214.011-.322 0-2.707-2.271-4.901-5.072-4.901-2.073 0-3.856 1.202-4.643 2.925"
-                            ></path>
-                        </svg>
-                    </span>
-                </label>
+                        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </button>
                         <nav class="site-nav" role="navigation" aria-label="Main navigation">
                 <ul>
                     <li><a href="about.html">About</a></li>
-                    <li><a  href="projects.html">Projects</a></li>
-                    <li><a  href="get-involved.html">Get Involved</a></li>
-                    <li><a  href="contact.html">Contact</a></li>
-                                </ul>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="get-involved.html">Get Involved</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
             </nav>
+            <label class="theme-switch" aria-label="Toggle dark mode">
+                <input type="checkbox" id="theme-toggle" class="theme-checkbox" />
+                <span class="theme-icon theme-icon-sun" aria-hidden="true">☀</span>
+                <span class="slider"></span>
+                <span class="theme-icon theme-icon-moon" aria-hidden="true">☽</span>
+            </label>
+            <script>(function(){ var t = document.documentElement.getAttribute('data-theme'); var c = document.getElementById('theme-toggle'); if(c) c.checked = (t === 'dark'); })();</script>
         </div>
     </header>
-    <main id="main" class="hero" role="main">
+    <main id="main" class="hero hero-inner-page" role="main">
         <div class="container hero-inner">
             <div class="hero-content reveal">
                 <h2 class="hero-title">Join Us in Making a Difference</h2>
@@ -57,27 +61,7 @@
         </div>
     </main>
 
-    <!-- Fundraiser Section - Prominently Featured -->
-    <section class="fundraiser" id="fundraiser">
-        <div class="container">
-            <div class="section-header">
-                <h2>Support Our Mission</h2>
-                <p class="section-subtitle">Help us make an even bigger impact through your generous support</p>
-            </div>
-            <div class="fundraiser-content">
-                <!-- Placeholder for embedded fundraiser -->
-                <div class="fundraiser-embed">
-                    <p class="fundraiser-placeholder">
-
-                    <!-- Add your fundraiser embed code here -->
-                    <iframe src="https://secure.qgiv.com/event/dtc/store/" title="Fairdale Circle of Care Donation" width="100%" height="80vh" frameborder="0"></iframe>
-                    <!-- Example: <iframe src="YOUR_FUNDRAISER_URL" width="100%" height="600" frameborder="0"></iframe> -->
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Volunteer Benefits Section -->
+    <!-- Why Get Involved - moved up to build excitement before the ask -->
     <section class="volunteer-benefits">
         <div class="container">
             <div class="section-header">
@@ -85,33 +69,33 @@
                 <p class="section-subtitle">Discover the many ways you can make a positive impact</p>
             </div>
 
-            <div class="benefits-grid">
-                <div class="benefit-card">
+            <div class="benefits-grid" data-stagger>
+                <div class="benefit-card reveal">
                     <div class="benefit-icon">💚</div>
                     <h3>Make a Real Impact</h3>
                     <p>See the direct results of your efforts as you help improve lives in your community.</p>
                 </div>
-                <div class="benefit-card">
+                <div class="benefit-card reveal">
                     <div class="benefit-icon">🤝</div>
                     <h3>Build Connections</h3>
                     <p>Meet like-minded people, form lasting friendships, and become part of a caring community.</p>
                 </div>
-                <div class="benefit-card">
+                <div class="benefit-card reveal">
                     <div class="benefit-icon">📈</div>
                     <h3>Learn New Skills</h3>
                     <p>Gain valuable experience in leadership, organization, and community service.</p>
                 </div>
-                <div class="benefit-card">
+                <div class="benefit-card reveal">
                     <div class="benefit-icon">🌟</div>
                     <h3>Flexible Schedule</h3>
                     <p>Volunteer when it works for you — we offer opportunities that fit your availability.</p>
                 </div>
-                <div class="benefit-card">
+                <div class="benefit-card reveal">
                     <div class="benefit-icon">🎓</div>
                     <h3>Personal Growth</h3>
                     <p>Develop empathy, leadership skills, and a deeper understanding of community needs.</p>
                 </div>
-                <div class="benefit-card">
+                <div class="benefit-card reveal">
                     <div class="benefit-icon">✨</div>
                     <h3>Feel Good</h3>
                     <p>Experience the satisfaction that comes from helping others and making a difference.</p>
@@ -120,15 +104,29 @@
         </div>
     </section>
 
+    <!-- Donate - link out instead of iframe for better usability -->
+    <section class="fundraiser" id="fundraiser">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Support Our Mission</h2>
+                <p class="section-subtitle">Help us make an even bigger impact through your generous support</p>
+            </div>
+            <div class="fundraiser-content fundraiser-link reveal">
+                <p class="section-subtitle">Your donation helps us provide meals, run community projects, and teach life skills. Every gift makes a difference.</p>
+                <a class="btn btn-primary" href="https://secure.qgiv.com/event/dtc/store/" target="_blank" rel="noopener noreferrer">Donate Now</a>
+            </div>
+        </div>
+    </section>
+
     <!-- Call to Action Section -->
     <section class="get-involved-cta">
         <div class="container">
             <div class="cta-content">
-                <h2>Ready to Make a Difference?</h2>
-                <p>Whether you want to volunteer your time, support our fundraiser, or learn more about our projects, we'd love to hear from you.</p>
+                <h2>Have Questions? Reach Out.</h2>
+                <p>Not sure where to start? Send us a message and we'll help you find the right opportunity to get involved.</p>
                 <div class="cta-buttons">
-                    <a href="contact.html" class="btn btn-primary">Contact Us</a>
-                    <a href="projects.html" class="btn">View Projects</a>
+                    <a class="btn btn-primary" href="contact.html">Contact Us</a>
+                    <a class="btn btn-secondary" href="projects.html">See Projects</a>
                 </div>
             </div>
         </div>

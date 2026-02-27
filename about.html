@@ -4,6 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Fairdale Circle of Care | About Us</title>
+    <script>
+      (function() {
+        var theme = localStorage.getItem('theme');
+        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var isDark = theme === 'dark' || (!theme && prefersDark);
+        document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+      })();
+    </script>
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/x-icon" href="images/Fairdale_High_logo_template_300.png">
 </head>
@@ -19,34 +27,30 @@
                 <p class="site-tagline">Building compassion through action — helping our local homeless community, one step at a time.</p>
             </div>
 
-            <button class="nav-toggle" aria-label="Toggle navigation">></button>
-            <label class="theme-switch">
-          <input type="checkbox" id="theme-toggle" class="theme-checkbox" />
-          <span class="slider">
-            <div class="star star_1"></div>
-            <div class="star star_2"></div>
-            <div class="star star_3"></div>
-            <svg viewBox="0 0 16 16" class="cloud_1 cloud">
-              <path
-                transform="matrix(.77976 0 0 .78395-299.99-418.63)"
-                fill="#fff"
-                d="m391.84 540.91c-.421-.329-.949-.524-1.523-.524-1.351 0-2.451 1.084-2.485 2.435-1.395.526-2.388 1.88-2.388 3.466 0 1.874 1.385 3.423 3.182 3.667v.034h12.73v-.006c1.775-.104 3.182-1.584 3.182-3.395 0-1.747-1.309-3.186-2.994-3.379.007-.106.011-.214.011-.322 0-2.707-2.271-4.901-5.072-4.901-2.073 0-3.856 1.202-4.643 2.925"
-              ></path>
-            </svg>
-          </span>
-        </label>
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
             <nav class="site-nav" role="navigation" aria-label="Main navigation">
                 <ul>
                     <li><a href="about.html">About</a></li>
-                    <li><a  href="projects.html">Projects</a></li>
-                    <li><a  href="get-involved.html">Get Involved</a></li>
-                    <li><a  href="contact.html">Contact</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="get-involved.html">Get Involved</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
+            <label class="theme-switch" aria-label="Toggle dark mode">
+                <input type="checkbox" id="theme-toggle" class="theme-checkbox" />
+                <span class="theme-icon theme-icon-sun" aria-hidden="true">☀</span>
+                <span class="slider"></span>
+                <span class="theme-icon theme-icon-moon" aria-hidden="true">☽</span>
+            </label>
+            <script>(function(){ var t = document.documentElement.getAttribute('data-theme'); var c = document.getElementById('theme-toggle'); if(c) c.checked = (t === 'dark'); })();</script>
         </div>
     </header>
 
-    <main id="main" class="hero" role="main">
+    <main id="main" class="hero hero-inner-page" role="main">
         <div class="container hero-inner">
             <div class="hero-content reveal">
                 <h2 class="hero-title">About Us</h2>
@@ -63,15 +67,15 @@
     <!-- About Sections -->
     <section class="about-content" aria-labelledby="about-heading">
         <div class="container">
-            <h2 id="about-heading">About Fairdale Circle of Care</h2>
-            <p>We are a student-led organization dedicated to supporting our local homeless community through compassion, action, and collaboration. Founded by passionate students at Fairdale High School, we believe in making a tangible difference in our neighborhood.</p>
+            <h2 id="about-heading" class="reveal">About Fairdale Circle of Care</h2>
+            <p class="reveal">We are a student-led organization dedicated to supporting our local homeless community through compassion, action, and collaboration. Founded by passionate students at Fairdale High School, we believe in making a tangible difference in our neighborhood.</p>
 
-            <div class="about-grid">
-                <div class="about-item">
+            <div class="about-grid" data-stagger>
+                <div class="about-item reveal">
                     <h3>Our Vision</h3>
                     <p>To create a community where everyone has access to basic needs, support, and hope for a better future.</p>
                 </div>
-                <div class="about-item">
+                <div class="about-item reveal">
                     <h3>Our Goals</h3>
                     <ul>
                         <li>Provide immediate assistance to those in need</li>
@@ -93,26 +97,40 @@
             <h2 id="founders-heading">Our Founders</h2>
             <p>Fairdale Circle of Care was founded by a group of dedicated students who recognized the need for change in our community. Meet the visionary leaders who started this movement:</p>
 
-            <div class="founders-grid">
-                <div class="founder-card">
+            <div class="founders-grid" data-stagger>
+                <div class="founder-card reveal">
                     <img src="images/8A31B885-EFE0-4220-A9C0-D45A6B406CCF.JPG" alt="Kyleigh Salmon" class="founder-image">
                     <div class="founder-info">
                     <h3>Kyleigh Salmon</h3>
                     <p class="role">Co-Founder & Project Coordinator</p>
                     <p class="bio">I’m a junior at Fairdale High School with a passion for social justice and community service. I helped start Fairdale Circle of Care after seeing how many families in my community struggled with food, especially during the holidays. Turning a simple food drive into a student-led competition showed me how powerful compassion and teamwork can be.</p>
                     <p class="quote">"Small actions can make a big difference when people come together."</p>
-                    <p><a href="mailto:kyleigh.salmon@stu.jefferson.kyschools.us" class="Email">kyleigh.salmon@stu.jefferson.kyschools.us</a></p>
+                    <p><a href="contact.html" class="Email">Contact us</a></p>
                 </div>
                 </div>
-                <div class="founder-card">
+                <div class="founder-card reveal">
                     <img src="images/susan circle of care.jpg" alt="Susan Calderon Hernandez" class="founder-image">
                     <div class="founder-info">
                     <h3>Susan Calderon Hernandez</h3>
                     <p class="role">Co-Founder & Communications Lead</p>
                     <p class="bio">I’m a junior at Fairdale High School, and growing up in an immigrant household shaped my passion for supporting families in need. Through Fairdale Circle of Care, I helped spread awareness across our school and organize a food drive in our first project that brought our community together, collecting over 600 food items in just one week.</p>
                     <p class="quote">"Being able to help others in a way I relate to is what makes this work meaningful."</p>
-                    <p><a href="mailto:susan.calderon@stu.jefferson.kyschools.us" class="Email">susan.calderon@stu.jefferson.kyschools.us</a></p>
+                    <p><a href="contact.html" class="Email">Contact us</a></p>
                 </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="get-involved-cta about-cta">
+        <div class="container">
+            <div class="cta-content reveal">
+                <h2>Ready to Get Involved?</h2>
+                <p>Join us in making a difference. Whether you want to volunteer, support our projects, or learn more, we'd love to hear from you.</p>
+                <div class="cta-buttons">
+                    <a class="btn btn-primary" href="get-involved.html">Get Involved</a>
+                    <a class="btn btn-secondary" href="contact.html">Contact Us</a>
                 </div>
             </div>
         </div>

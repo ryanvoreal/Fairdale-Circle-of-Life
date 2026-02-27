@@ -4,6 +4,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Fairdale Circle of Care | Home</title>
+    <script>
+      (function() {
+        var theme = localStorage.getItem('theme');
+        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var isDark = theme === 'dark' || (!theme && prefersDark);
+        document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme-initial', isDark ? 'dark' : 'light');
+      })();
+    </script>
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/x-icon" href="images/Fairdale_High_logo_template_300.png">
 </head>
@@ -18,32 +27,26 @@
                 </a>
                 <p class="site-tagline">Building compassion through action — helping our local homeless community, one step at a time.</p>
             </div>
-            <button class="nav-toggle" aria-label="Toggle navigation">></button>
-            <label class="theme-switch">
-          <input type="checkbox" id="theme-toggle" class="theme-checkbox" />
-          <span class="slider">
-            <div class="star star_1"></div>
-            <div class="star star_2"></div>
-            <div class="star star_3"></div>
-            <svg viewBox="0 0 16 16" class="cloud_1 cloud">
-              <path
-                transform="matrix(.77976 0 0 .78395-299.99-418.63)"
-                fill="#fff"
-                d="m391.84 540.91c-.421-.329-.949-.524-1.523-.524-1.351 0-2.451 1.084-2.485 2.435-1.395.526-2.388 1.88-2.388 3.466 0 1.874 1.385 3.423 3.182 3.667v.034h12.73v-.006c1.775-.104 3.182-1.584 3.182-3.395 0-1.747-1.309-3.186-2.994-3.379.007-.106.011-.214.011-.322 0-2.707-2.271-4.901-5.072-4.901-2.073 0-3.856 1.202-4.643 2.925"
-              ></path>
-            </svg>
-          </span>
-        </label>
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
             <nav class="site-nav" role="navigation" aria-label="Main navigation">
                 <ul>
                     <li><a href="about.html">About</a></li>
-                    <li><a  href="projects.html">Projects</a></li>
-                    <li><a  href="get-involved.html">Get Involved</a></li>
-                    <li><a  href="contact.html">Contact</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="get-involved.html">Get Involved</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
-        
-
             </nav>
+            <label class="theme-switch" aria-label="Toggle dark mode">
+                <input type="checkbox" id="theme-toggle" class="theme-checkbox" />
+                <span class="theme-icon theme-icon-sun" aria-hidden="true">☀</span>
+                <span class="slider"></span>
+                <span class="theme-icon theme-icon-moon" aria-hidden="true">☽</span>
+            </label>
+            <script>(function(){ var t = document.documentElement.getAttribute('data-theme'); var c = document.getElementById('theme-toggle'); if(c) c.checked = (t === 'dark'); })();</script>
         </div>
     </header>
 
@@ -56,61 +59,62 @@
           spaces where students and neighbors can grow food, learn life
           skills, and lend a helping hand.</p>
                 <div class="hero-cta">
-                    <a class="btn btn-primary" href="#get-involved">Volunteer</a>
-                    <a class="btn" href="#projects">See Projects</a>
+                    <a class="btn btn-primary" href="get-involved.html">Get Involved</a>
+                    <a class="btn btn-secondary" href="projects.html">See Projects</a>
                 </div>
                 <p class="hero-note">Every hand helps — start where you are, with what you have.</p>
             </div>
         </div>
 
     </main>
-        <div class="mission">
+        <div class="mission reveal">
             <div class="mission-statement">
                 <h2>Our Mission</h2>
                 <p>Our projects bring students and neighbors together to learn, grow, and help others. Through the Circle of Care, we connect our community with local resources, opportunities, and hope.</p>
+                <a class="btn btn-secondary mission-btn" href="about.html">Learn more about us</a>
             </div>
             <div class="mission-image">
                 <img src="images/IMG_8258.jpg" alt="Students holding donated food items for the community" />
             </div>
         </div>
-    <section class="efforts">
-        <div class="card" id="gardenCard">
-            <div class="card-image">
-                <img src="images/IMG_8283.JPG" alt="Assorted cereal boxes collected for donation" />
-            </div>
-            <h3>Community Projects</h3>
-            <p>Helping our local community through service and support.</p>
-            <a class="btn" href="projects.html">Learn More</a>
+    <section class="efforts-section">
+        <div class="container efforts-header reveal">
+            <p class="section-eyebrow">What we do</p>
+            <h2>How We Help</h2>
         </div>
-        <div class="card" id="commCard">
-            <div class="card-image">
-                <img src="images/IMG_8388.JPG" alt="Students posing with boxes of donated items" />
+        <div class="efforts" data-stagger>
+            <div class="card reveal" id="gardenCard">
+                <div class="card-image">
+                    <img src="images/IMG_8283.JPG" alt="Assorted cereal boxes collected for donation" />
+                </div>
+                <h3>Community Projects</h3>
+                <p>Helping our local community through service and support.</p>
+                <a class="btn btn-secondary" href="projects.html">See Projects</a>
             </div>
-            <h3>Community Outreach</h3>
-            <p>Supporting our homeless neighbors with care and connection.</p>
-            <a class="btn" href="get-involved.html">Learn More</a>
-        </div>
-        <div class="card" id="skillCard">
-            <div class="card-image">
-                <img src="images/IMG_8384.JPG" alt="Custom poster created by a student" />
+            <div class="card reveal" id="commCard">
+                <div class="card-image">
+                    <img src="images/IMG_8388.JPG" alt="Students posing with boxes of donated items" />
+                </div>
+                <h3>Community Outreach</h3>
+                <p>Supporting our homeless neighbors with care and connection.</p>
+                <a class="btn btn-primary" href="get-involved.html">Get Involved</a>
             </div>
-            <h3>Sklls For Life</h3>
-            <p>Teaching practical skills for a stronger, kinder community.</p>
-            <a class="btn" href="projects.html">Learn More</a>
         </div>
     </section>
-    <script src="script.js"></script>
-
-     <!-- Impact statistics section -->
+    <!-- Impact statistics section -->
     <section class="impact">
-      <div class="container">
-        <h2>Our Impact</h2>
-        <div class="impact-stats">
-          <div class="stat">
+      <div class="container impact-layout">
+        <div class="impact-intro reveal">
+          <p class="section-eyebrow">By the numbers</p>
+          <h2>Our Impact</h2>
+          <p class="impact-desc">Every project, every volunteer hour, and every donated item adds up. Here's what we've accomplished together so far.</p>
+        </div>
+        <div class="impact-stats" data-stagger>
+          <div class="stat reveal">
             <span class="count" data-target="100">50+</span>
             <p>Meals Served</p>
           </div>
-          <div class="stat">
+          <div class="stat reveal">
             <span class="count" data-target="100">200+</span>
             <p>Students Involved</p>
           </div>
@@ -119,28 +123,32 @@
     </section>
 
 
-
-
     <!-- FAQ section -->
     <section class="faq">
-      <div class="container">
-        <h2>Frequently Asked Questions</h2>
-        <div class="faq-item">
-          <button class="faq-question">What is the Fairdale Circle of Care?</button>
-          <div class="faq-answer">
-            <p>We are a student and community initiative focused on helping our homeless neighbors, building gardens, and teaching life skills through service projects.</p>
-          </div>
+      <div class="container faq-layout">
+        <div class="faq-intro reveal">
+          <p class="section-eyebrow">Got questions?</p>
+          <h2>Frequently Asked Questions</h2>
+          <p class="faq-desc">Everything you need to know about getting involved and what we do.</p>
         </div>
-        <div class="faq-item">
-          <button class="faq-question">How can I volunteer?</button>
-          <div class="faq-answer">
-            <p>You can sign up through our <a href="get-involved.html">Get Involved</a> page. Opportunities include gardening, food drives, and event support.</p>
+        <div class="faq-items reveal">
+          <div class="faq-item">
+            <button class="faq-question">What is the Fairdale Circle of Care?</button>
+            <div class="faq-answer">
+              <p>We are a student and community initiative focused on helping our homeless neighbors, building gardens, and teaching life skills through service projects.</p>
+            </div>
           </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question">Do I need prior experience?</button>
-          <div class="faq-answer">
-            <p>No experience is required! We welcome anyone willing to lend a helping hand and learn along the way.</p>
+          <div class="faq-item">
+            <button class="faq-question">How can I volunteer?</button>
+            <div class="faq-answer">
+              <p>You can sign up through our <a href="get-involved.html">Get Involved</a> page. Opportunities include gardening, food drives, and event support.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Do I need prior experience?</button>
+            <div class="faq-answer">
+              <p>No experience is required! We welcome anyone willing to lend a helping hand and learn along the way.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -150,19 +158,22 @@
     <!-- Testimonials section -->
     <section class="testimonies">
       <div class="container">
-        <h2>What People Say</h2>
-        <div class="testimonials-grid">
-          <div class="testimonial-card">
+        <div class="testimonies-header reveal">
+          <p class="section-eyebrow">Testimonials</p>
+          <h2>What People Say</h2>
+        </div>
+        <div class="testimonials-grid" data-stagger>
+          <div class="testimonial-card reveal">
             <div class="testimonial-stars">★★★★★</div>
             <p class="testimonial-text">"The Fairdale Circle of Care has made a real difference in our community. Seeing students come together to help others is truly inspiring."</p>
             <p class="testimonial-author">VOLUNTEER: MUSSA OMARR</p>
           </div>
-          <div class="testimonial-card">
+          <div class="testimonial-card reveal">
             <div class="testimonial-stars">★★★★★</div>
             <p class="testimonial-text">"This initiative teaches our students compassion and leadership while making a tangible impact. Couldn't ask for more from a school program."</p>
             <p class="testimonial-author">TEACHER: KATE ADAMS</p>
           </div>
-          <div class="testimonial-card">
+          <div class="testimonial-card reveal">
             <div class="testimonial-stars">★★★★★</div>
             <p class="testimonial-text">"Being part of this community garden changed my perspective on what we can achieve together. Everyone is welcome, and that means everything."</p>
             <p class="testimonial-author">STUDENT: MAKAI GREEN</p>
@@ -174,14 +185,21 @@
 
     <!-- ============ GET INVOLVED SECTION =========== -->
     <section class="get-involved" id="get-involved">
-      <div class="container">
-        <h2>Get Involved</h2>
-        <p>There are many ways to make a difference. Choose how you'd like to help:</p>
-        <ul>
-          <li><strong>Volunteer:</strong> Join us for gardening, food drives, and community events.</li>
-          <li><strong>Partner:</strong> Collaborate with your business or school to expand our impact.</li>
-        </ul>
-        <a class="btn btn-primary" href="get-involved.html">Sign Up Today</a>
+      <div class="container get-involved-layout">
+        <div class="get-involved-text reveal">
+          <p class="section-eyebrow">Join us</p>
+          <h2>Get Involved</h2>
+          <p>There are many ways to make a difference. Choose how you'd like to help:</p>
+          <ul>
+            <li><strong>Volunteer:</strong> Join us for gardening, food drives, and community events.</li>
+            <li><strong>Partner:</strong> Collaborate with your business or school to expand our impact.</li>
+          </ul>
+        </div>
+        <div class="get-involved-cta-box reveal">
+          <p>Ready to make a difference in your community?</p>
+          <a class="btn btn-primary" href="get-involved.html">Get Involved</a>
+          <a class="btn btn-secondary" href="contact.html">Contact Us</a>
+        </div>
       </div>
     </section>
 
@@ -214,5 +232,6 @@
       </div>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>

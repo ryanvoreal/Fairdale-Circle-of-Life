@@ -1,24 +1,80 @@
-// Fade-in animation for elements with class 'reveal'
-const revealElements = document.querySelectorAll('.reveal');
+// ========= SCROLL REVEAL (IntersectionObserver) =========
+(function initReveal() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
 
-function revealOnScroll() {
-  revealElements.forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 100) {
-      el.classList.add('visible');
-    }
+      if (el.dataset.stagger !== undefined) {
+        // Trigger staggered children when the container enters view
+        Array.from(el.querySelectorAll('.reveal')).forEach((child, i) => {
+          setTimeout(() => child.classList.add('visible'), i * 100);
+        });
+        el.classList.add('visible');
+      } else {
+        el.classList.add('visible');
+      }
+
+      observer.unobserve(el);
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  // Observe stagger containers directly
+  document.querySelectorAll('[data-stagger]').forEach(el => observer.observe(el));
+
+  // Observe individual reveal elements that are NOT inside a stagger container
+  document.querySelectorAll('.reveal').forEach(el => {
+    if (!el.closest('[data-stagger]')) observer.observe(el);
   });
-}
-
-window.addEventListener('scroll', revealOnScroll);
-revealOnScroll(); 
+})();
 
 const toggleBtn = document.querySelector('.nav-toggle');
 const nav = document.querySelector('.site-nav');
 
-toggleBtn.addEventListener('click', () => {
-  nav.classList.toggle('open');
+function openNav() {
+  nav.classList.add('open');
+  toggleBtn.classList.add('open');
+  toggleBtn.setAttribute('aria-expanded', 'true');
+}
+
+function closeNav() {
+  nav.classList.remove('open');
+  toggleBtn.classList.remove('open');
+  toggleBtn.setAttribute('aria-expanded', 'false');
+}
+
+toggleBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  nav.classList.contains('open') ? closeNav() : openNav();
 });
+
+// Close when a nav link is clicked
+nav.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', closeNav);
+});
+
+// Close when tapping outside the header
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.site-header')) {
+    closeNav();
+  }
+});
+
+// Close on Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeNav();
+});
+
+// Highlight the active page link
+(function markActivePage() {
+  const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+  nav.querySelectorAll('a').forEach(link => {
+    const linkPath = link.getAttribute('href').split('/').pop();
+    if (linkPath === currentPath) {
+      link.classList.add('active-page');
+    }
+  });
+})();
 
 // ======= REVEAL ANIMATION ON SCROLL =======
 
@@ -33,11 +89,8 @@ if (themeToggle) {
   const savedTheme = localStorage.getItem('theme');
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   const currentTheme = savedTheme || (prefersDark ? 'dark' : 'light');
-
-
   htmlElement.setAttribute('data-theme', currentTheme);
   themeToggle.checked = currentTheme === 'dark';
-
 
   themeToggle.addEventListener('change', () => {
     const newTheme = themeToggle.checked ? 'dark' : 'light';
@@ -133,31 +186,63 @@ if (volunteerForm) {
   });
 }
 
-// ========= PROJECT SLIDER FUNCTIONALITY =========
+// ========= PROJECT TABBED CARDS =========
+document.querySelectorAll('.project-tabbed').forEach(wrapper => {
+  const tablist = wrapper.querySelector('.project-tabs');
+  if (!tablist) return;
+  const tabs = Array.from(tablist.querySelectorAll('.project-tab'));
+  const panels = Array.from(wrapper.querySelectorAll('.project-tab-panel'));
+  let activeIndex = tabs.findIndex(t => t.classList.contains('active'));
+  let animating = false;
 
-document.querySelectorAll('.project-slider-wrapper').forEach(wrapper => {
-  const slider = wrapper.querySelector('.project-slider');
-  const slides = slider.querySelectorAll('.slide, .slide-projpage');
-  const prevBtn = wrapper.querySelector('.prev');
-  const nextBtn = wrapper.querySelector('.next');
+  const ANIM_CLASSES = ['tab-enter-right', 'tab-enter-left', 'tab-exit-left', 'tab-exit-right'];
 
-  let currentIndex = 0;
-
-  function scrollToIndex(index) {
-    slides[index].scrollIntoView({
-      behavior: 'smooth',
-      inline: 'start'
-    });
+  function clearAnimClasses(panel) {
+    panel.classList.remove(...ANIM_CLASSES);
   }
 
-  nextBtn?.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % slides.length;
-    scrollToIndex(currentIndex);
-  });
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => {
+      if (i === activeIndex || animating) return;
+      animating = true;
 
-  prevBtn?.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    scrollToIndex(currentIndex);
+      const direction = i > activeIndex ? 'forward' : 'backward';
+      const prevIndex = activeIndex;
+      activeIndex = i;
+
+      // Update tab button states immediately
+      tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+      tabs[i].classList.add('active');
+      tabs[i].setAttribute('aria-selected', 'true');
+
+      const outgoing = panels[prevIndex];
+      const incoming = panels[i];
+
+      // Prepare outgoing panel
+      clearAnimClasses(outgoing);
+      outgoing.classList.add(direction === 'forward' ? 'tab-exit-left' : 'tab-exit-right');
+
+      // Prepare incoming panel — show it and animate in
+      incoming.hidden = false;
+      incoming.classList.add('active');
+      clearAnimClasses(incoming);
+      incoming.classList.add(direction === 'forward' ? 'tab-enter-right' : 'tab-enter-left');
+
+      // After outgoing finishes, clean it up
+      outgoing.addEventListener('animationend', function handler() {
+        outgoing.removeEventListener('animationend', handler);
+        outgoing.classList.remove('active');
+        outgoing.hidden = true;
+        clearAnimClasses(outgoing);
+        animating = false;
+      });
+
+      // After incoming finishes, clean up animation classes
+      incoming.addEventListener('animationend', function handler() {
+        incoming.removeEventListener('animationend', handler);
+        clearAnimClasses(incoming);
+      });
+    });
   });
 });
 
