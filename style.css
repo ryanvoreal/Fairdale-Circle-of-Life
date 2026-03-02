@@ -110,16 +110,27 @@ iframe{
     width: 80%;
   }
   .site-nav ul {
-    padding: 0.5rem;
+    gap: 0.1rem;
+    padding: 0.3rem;
+  }
+  .site-nav a {
+    padding: 0.38rem 0.6rem;
+    font-size: 0.875rem;
   }
 }
 
 @media (max-width: 1024px) {
   .site-header {
-    width: 80%;
+    width: 90%;
   }
   .site-nav ul {
-    padding: 0.4rem;
+    gap: 0.05rem;
+    padding: 0.25rem;
+  }
+  .site-nav a {
+    padding: 0.35rem 0.45rem;
+    font-size: 0.82rem;
+    letter-spacing: 0.1px;
   }
 }
 
@@ -202,9 +213,9 @@ html[data-theme="dark"] .site-tagline {
 .site-nav ul {
   list-style: none;
   display: flex;
-  gap: 0.5rem;
+  gap: 0.2rem;
   margin: 0;
-  padding: 0.35rem;
+  padding: 0.3rem;
   align-items: center;
   background: rgba(255,255,255,0.03);
   border-radius: 999px;
@@ -221,11 +232,13 @@ html[data-theme="dark"] .site-tagline {
   text-decoration: none;
   color: var(--cream);
   font-weight: 700;
-  letter-spacing: 0.4px;
-  padding: 0.45rem 0.9rem;
+  letter-spacing: 0.3px;
+  font-size: 0.9rem;
+  padding: 0.4rem 0.75rem;
   border-radius: 999px;
   transition: background 160ms ease, transform 160ms ease, box-shadow 160ms ease;
   backdrop-filter: none;
+  white-space: nowrap;
 }
 
 
@@ -536,23 +549,54 @@ html[data-theme="dark"] .theme-switch .slider {
 
 /* hero section */
 .hero {
-  padding-top:8rem;
-  background:
-    linear-gradient(rgba(42, 77, 105, 0.8), rgba(42, 77, 105, 0.8)),
-    url("https://civicwell.org/wp-content/uploads/2013/07/feature-cultivating-community-gardens.jpg") center/cover no-repeat;
   padding:9rem 0;
-  background-size:cover;
+  background-image:
+    linear-gradient(rgba(42, 77, 105, 0.8), rgba(42, 77, 105, 0.8)),
+    url("images/shane-rounce-DNkoNXQti3c-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: var(--text);
   position: relative;
   box-shadow: inset 0 -4px 10px rgba(0,0,0,0.3);
 }
 
-
-html[data-theme="dark"] .hero {
-  background:
+html[data-theme="dark"] .hero:not(.hero-inner-page) {
+  background-image:
     linear-gradient(rgba(26, 42, 58, 0.9), rgba(26, 42, 58, 0.9)),
-    url("https://civicwell.org/wp-content/uploads/2013/07/feature-cultivating-community-gardens.jpg") center/cover no-repeat;
+    url("images/shane-rounce-DNkoNXQti3c-unsplash.jpg");
   background-size: cover;
+  background-position: center;
+}
+
+html[data-theme="dark"] .hero-about {
+  background-image:
+    linear-gradient(rgba(15, 30, 45, 0.85), rgba(15, 30, 45, 0.85)),
+    url("images/clay-banks-LjqARJaJotc-unsplash.jpg");
+}
+
+html[data-theme="dark"] .hero-projects {
+  background-image:
+    linear-gradient(rgba(15, 30, 45, 0.85), rgba(15, 30, 45, 0.85)),
+    url("images/joel-muniz-3k3l2brxmwQ-unsplash.jpg");
+}
+
+html[data-theme="dark"] .hero-resources {
+  background-image:
+    linear-gradient(rgba(15, 30, 45, 0.85), rgba(15, 30, 45, 0.85)),
+    url("images/victoria-kubiaki-emPsZ6MBCUs-unsplash.jpg");
+}
+
+html[data-theme="dark"] .hero-get-involved {
+  background-image:
+    linear-gradient(rgba(15, 30, 45, 0.85), rgba(15, 30, 45, 0.85)),
+    url("images/h-u-phu-6qt7cVSN6uc-unsplash.jpg");
+}
+
+html[data-theme="dark"] .hero-contact {
+  background-image:
+    linear-gradient(rgba(15, 30, 45, 0.85), rgba(15, 30, 45, 0.85)),
+    url("images/julian-hochgesang-Dkn8-zPIbwo-unsplash.jpg");
 }
 
 html[data-theme="dark"] body{
@@ -588,6 +632,57 @@ html[data-theme="dark"] body{
 /* Inner pages: smaller hero so it doesn’t feel like the homepage */
 .hero-inner-page.hero {
   padding: 6rem 0 4rem;
+}
+
+/* =====================================================
+   PER-PAGE HERO IMAGES
+   To change a page's hero image, just update the url()
+   below for that page. The overlay tint is automatic.
+   ===================================================== */
+
+/* About page — add class="hero hero-inner-page hero-about" to <main> */
+.hero-about {
+  background-image:
+    linear-gradient(rgba(42, 77, 105, 0.75), rgba(42, 77, 105, 0.75)),
+    url("images/clay-banks-LjqARJaJotc-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Projects page */
+.hero-projects {
+  background-image:
+    linear-gradient(rgba(42, 77, 105, 0.75), rgba(42, 77, 105, 0.75)),
+    url("images/joel-muniz-3k3l2brxmwQ-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Resources page */
+.hero-resources {
+  background-image:
+    linear-gradient(rgba(42, 77, 105, 0.75), rgba(42, 77, 105, 0.75)),
+    url("images/victoria-kubiaki-emPsZ6MBCUs-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Get Involved page */
+.hero-get-involved {
+  background-image:
+    linear-gradient(rgba(42, 77, 105, 0.75), rgba(42, 77, 105, 0.75)),
+    url("images/h-u-phu-6qt7cVSN6uc-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Contact page */
+.hero-contact {
+  background-image:
+    linear-gradient(rgba(42, 77, 105, 0.75), rgba(42, 77, 105, 0.75)),
+    url("images/julian-hochgesang-Dkn8-zPIbwo-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
 .hero-inner-page .hero-title {
@@ -3194,7 +3289,7 @@ html[data-theme="dark"] .footer-bottom p {
     padding: 0 0.5rem !important;
   }
   .site-title {
-    font-size: 0.2 !important;
+    font-size: 0.85rem !important;
   }
   .site-tagline {
     display: none !important;
@@ -5179,6 +5274,29 @@ html[data-theme="dark"] .about-item h3 {
     width: 80px;
     height: 80px;
   }
+}
+
+#resourceSearch {
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto 2rem;
+  padding: 0.75rem 1.25rem;
+  border: 2px solid var(--sky);
+  border-radius: 30px;
+  font-size: 1rem;
+  font-family: inherit;
+  outline: none;
+}
+
+html[data-theme="dark"] #resourceSearch {
+  background: #1e2d3d;
+  color: #e8e8e8;
+  border-color: var(--sky);
+}
+
+html[data-theme="dark"] #resourceSearch::placeholder {
+  color: #6a8299;
 }
 
 /* Dark mode image adjustments */

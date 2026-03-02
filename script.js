@@ -246,3 +246,19 @@ document.querySelectorAll('.project-tabbed').forEach(wrapper => {
   });
 });
 
+document.getElementById('resourceSearch').addEventListener('input', function() {
+  const query = this.value.toLowerCase();
+  const cards = document.querySelectorAll('.efforts .card');
+  let anyVisible = false;
+
+  cards.forEach(function(card) {
+    const text = card.textContent.toLowerCase();
+    if (text.includes(query)) {
+      card.style.display = '';
+      anyVisible = true;
+    } else {
+      card.style.display = 'none';
+    }
+  });
+  document.getElementById('noResults').style.display = anyVisible ? 'none' : 'block';
+});
